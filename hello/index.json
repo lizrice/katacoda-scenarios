@@ -30,6 +30,7 @@
     "imageid": "ubuntu"
   },
   "files": [
-    "hello.go"
+    "hello.go",
+    "Dockerfile"
   ]
 }
