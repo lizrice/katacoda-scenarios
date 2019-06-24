@@ -48,5 +48,5 @@ You can also make a request using `curl`:
 
 `curl https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/`{{execute}}
 
-You could run this here in the Katacoda terminal, and it would also work from a terminal on your laptop because that address is exposed to the internet.
+You should also be able to issue that curl request from a terminal on your laptop, because that address is exposed to the internet.
 
