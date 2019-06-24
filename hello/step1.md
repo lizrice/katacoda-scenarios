@@ -2,7 +2,7 @@ Start by writing a simple Go web server application.
 
 ## Write your hello world web server
 
-Write a basic web server in Go that will respond to a request on port 8080 with a simple message like "hello world".
+Write a basic web server in Go that will respond to a request on port 8080 with a simple message like "hello world". The editor pane on the top right of this screen is already set up to edit a file called `hello.go`. You can click the button below to copy the code into that file. 
 
 <pre class="file" data-filename="hello.go" data-target="replace">
 package main
@@ -18,7 +18,11 @@ func main() {
 }
 </pre>
 
+*Feel free to modify the Go code to make this app your own! But if you change the port on which the server responds to requests (8080 in the example) you'll need to remember to change that as you follow the rest of the instructions in this scenario.*
+
 ## Compile your app
+
+Clicking on commands, like the line below will copy and execute it in the terminal window on the bottom right of this screen.
 
 `go build -o hello hello.go`{{execute}}
 
@@ -28,12 +32,21 @@ Run the app in the background (using the ampersand) so that you can still type i
 
 `./hello &`{{execute}}
 
-## Does it work?
+## Check it works
 
-You should be able to see your app running at https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/
+You can make a request to your application using `curl`:
 
+`curl localhost:8080`{{execute}}
 
+You should see the text message returned to you.
 
-Start a new terminal window where you can make a request to your web server.
+### Host names in this Katacoda environment
+
+We've just made the `curl` request to the active port (8080, if you didn't change it) on `localhost`. On Katacoda you can also reach active ports through a dynamically-configured host name for your environment. In this case you can access your app through your browser by visiting https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/
+
+You can also make a request using `curl`:
 
 `curl https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/`{{execute}}
+
+You could run this here in the Katacoda terminal, and it would also work from a terminal on your laptop because that address is exposed to the internet.
+

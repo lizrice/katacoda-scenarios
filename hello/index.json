@@ -8,6 +8,10 @@
     "steps": [{
       "title": "Write a simple web server",
       "text": "step1.md"
+    },
+    {
+      "title": "Put your app into a container image",
+      "text": "step2.md"
     }],
     "intro": {
       "text": "intro.md",
