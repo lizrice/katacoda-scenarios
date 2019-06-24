@@ -11,7 +11,8 @@
     },
     {
       "title": "Put your app into a container image",
-      "text": "step2.md"
+      "text": "step2.md",
+      "code": "read -p 'Enter your Docker Hub username: ' yourname; export $yourname"
     }],
     "intro": {
       "text": "intro.md",

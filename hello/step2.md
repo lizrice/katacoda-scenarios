@@ -4,7 +4,7 @@ Next we'll build your app into a container image, and run it as a container.
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
 # Start with the scratch (empty) image
-FROM scratch 
+FROM scratch
 
 # Copy the hello binary into the root directory
 COPY hello hello
@@ -15,21 +15,19 @@ ENTRYPOINT ["/hello"]
 
 ## Build a container image from this Dockerfile.
 
-In these instructions, **replace <yourname> with your username on Docker Hub**.
+ The next command builds a container image, following the commands in the Dockerfile.
 
-The next command builds a container image, following the commands in the Dockerfile.
-
-* We'll tag this image as `<yourname>/hello`
+* We'll tag this image as `$yourname/hello`
 * The -f specifies the Dockerfile to use
 * The . means we're building the image in the context of the current directory
 
-`docker build -t <yourname>/hello  .`{{execute}}
+`docker build -t $yourname/hello  .`{{execute}}
 
 Check that the container image exists.
 
 `docker image ls`{{execute}}
 
-You should see a container image called *<yourname>/hello* in the output.
+You should see a container image called *$yourname/hello* in the output.
 
 ## Run a container from this image
 
@@ -39,7 +37,7 @@ The next command runs a container, based on that container image.
 * The -d option runs the container in the background
 * The -p 8080:8080 tells Docker to map port 8080 in the container to port 18080 on the host
 
-`docker run --rm -d -p 18080:8080 <yourname>/hello`{{execute}}
+`docker run --rm -d -p 18080:8080 $yourname/hello`{{execute}}
 
 ## Look at the running containers
 
