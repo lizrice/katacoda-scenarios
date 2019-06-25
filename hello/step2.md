@@ -1,5 +1,7 @@
 Next we'll build your app into a container image, and run it as a container.
 
+**In the terminal you should see a prompt asking for your username on Docker Hub.** This is going to be stored in an environment variable for use in later commands.
+
 ## Write a Dockerfile
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
