@@ -1,4 +1,4 @@
-Next we'll build your app into a container image, and run it as a container.
+Next we'll build a container image that encapsulates your app.
 
 **In the terminal you should see a prompt asking for your username on Docker Hub.** This is going to be stored in an environment variable for use in later commands.
 
@@ -29,31 +29,25 @@ Check that the container image exists.
 
 `docker image ls`{{execute}}
 
-You should see a container image called *$yourname/hello* in the output.
+You should see a few container images listed, including one called *$yourname/hello*.
 
-## Run a container from this image
+Your image has the **tag** *latest*. This is the default if you don't specify a tag.
 
-The next command runs a container, based on that container image.
+# Notes and further reading
 
-* The --rm automatically deletes the container when you stop it. It's optional.
-* The -d option runs the container in the background
-* The -p 8080:8080 tells Docker to map port 8080 in the container to port 18080 on the host
+When you are pulling and pushing images from and to container registries (like Docker Hub) You can refer to your image in a few different ways:
 
-`docker run --rm -d -p 18080:8080 $yourname/hello`{{execute}}
+* *repository*/*image*:*tag*
+* *repository*/*image*@sha256:*image digest*
 
-## Look at the running containers
+The *image digest* is a hash of the image contents, and it's an immutable identifier for that exact version of the image. If you rebuild the image, it will have a different hash.
 
-`docker ps`
+In contrast, you can give any image any tag you like. The same tag might be re-used to refer to different versions of the image.
 
-This output should show a running container based on your image.
+Read more about image IDs and tags:
 
-## Check you can access it
+* [Explaining Docker Image IDs](https://windsock.io/explaining-docker-image-ids/)
+* [Docker Tag vs Hash: A Lesson in Deterministic Ops](https://medium.com/@tariq.m.islam/container-deployments-a-lesson-in-deterministic-ops-a4a467b14a03)
+* [Using Docker tags to mess with people's minds](https://medium.com/microscaling-systems/using-docker-tags-to-mess-with-peoples-minds-367bb2c93bd0)
 
-Note that we have mapped port 8080 inside the container to port 18080 on the host. The container port is only meaningful inside the container itself. We need to use the host port number to access the app:
-
-`curl localhost:18080`{{execute}}
-
-or:
-
-`curl https://[[HOST_SUBDOMAIN]]-18080-[[KATACODA_HOST]].environments.katacoda.com/`{{execute}}
 

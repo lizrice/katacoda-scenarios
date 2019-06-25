@@ -13,6 +13,10 @@
       "title": "Put your app into a container image",
       "text": "step2.md",
       "code": "username.sh"
+    },
+    {
+      "title": "Run your container image",
+      "text": "step3.md"
     }],
     "intro": {
       "text": "intro.md",
