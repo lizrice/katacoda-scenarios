@@ -50,3 +50,8 @@ You can also make a request using `curl`:
 
 You should also be able to issue that curl request from a terminal on your laptop, because that address is exposed to the internet.
 
+## Stop the application
+
+When you're satisfied that this application works, let's stop it:
+
+`kill %1`{{execute}}
