@@ -22,9 +22,9 @@ The second instance exited on error, but the first is still running, so let's ki
 
 `kill %1`{{execute}}
 
-When we run a container, we can have multiple instances running simultaneously by using different host ports. Try it by running another instance of the container, this time using host port 18081: 
+When we run a container, we can have multiple instances running simultaneously by using different host ports. Try it by running another instance of the container, this time using host port 18081:
 
-`docker run -d -p 18081:8080 $yourname/hello`{{execute}}
+`docker run -d -p 18081:8080 hello`{{execute}}
 
 `docker ps`{{execute}}
 
@@ -42,7 +42,7 @@ You can run any number of instances of the same container on a host, provided th
 
 You can specify just the container port number, and Docker will pick one of the available host ports for you. 
 
-`docker run -d -p 8080 $yourname/hello`{{execute}}
+`docker run -d -p 8080 hello`{{execute}}
 
 `docker ps`{{execute}}
 

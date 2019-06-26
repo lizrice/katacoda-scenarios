@@ -2,7 +2,7 @@ Now it's time to run your app inside a container.
 
 The next command runs a container, based on the container image you just built.
 
-`docker run --rm -d -p 18080:8080 $yourname/hello`{{execute}}
+`docker run --rm -d -p 18080:8080 hello`{{execute}}
 
 * The -d option runs the container in the background (so that we can still access the terminal prompt)
 * The -p 18080:8080 tells Docker to map port 8080 in the container to port 18080 on the host
