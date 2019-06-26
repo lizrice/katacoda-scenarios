@@ -40,7 +40,6 @@
   },
   "files": [
     "hello.go",
-    "text/response",
     "Dockerfile"
   ]
 }
