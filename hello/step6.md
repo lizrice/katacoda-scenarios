@@ -20,7 +20,7 @@ If you list the container images you will see two entries with the same containe
 
 You need to log in to Docker Hub so that you have permission to push your image to your repository. Follow the prompts:
 
-`docker login`{{execute}}
+`docker login -u $yourname`{{execute}}
 
 ## Push the image to Docker Hub
 
@@ -30,13 +30,15 @@ If you have successfully logged in, you should be able to push the image with th
 
 ## Pull the image to your laptop
 
-Open a terminal on your laptop and execute the following command to pull a copy of the image to your laptop:
+Open a terminal on your laptop. In the following commands you'll need to substitute your Docker username. 
 
-`docker pull $yourname/hello`{{copy}}
+Pull a copy of the image to your laptop:
+
+`docker pull *yourname*/hello`{{copy}}
 
 Now you should be able to run it locally:
 
-`docker run -d -P $yourname/hello`{{copy}}
+`docker run -d -P *yourname*/hello`{{copy}}
 
 Check that it is running, and find the host port that has been assigned:
 

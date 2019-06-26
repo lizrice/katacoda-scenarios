@@ -43,7 +43,7 @@ When you are pulling and pushing images from and to container registries (like D
 * \[*registry*/\]*repository*/*name*:*tag*
 * \[*registry*/\]*repository*/*name*@sha256:*image digest*
 
-The *registry* is the host name of the container registry. If it's omitted, it's assumed you mean `hub.docker.com`. The registry only becomes important when pushing and pulling images to and from a registry.
+The *registry* is the host name of the container registry. If it's omitted, it's assumed you mean Docker Hub. The registry only becomes important when pushing and pulling images to and from a registry.
 
 The *repository* is typically your username, or the name of your organization or project. This is another field that only really comes into play when you are using images stored in a registry. There are a set of "standard images" which have no repository name (for example `nginx` or `ubuntu`)
 
