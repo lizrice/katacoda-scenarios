@@ -22,7 +22,7 @@ CMD ["/hello"]
 
 The next command builds a container image, following the commands in the Dockerfile.
 
-`docker build -t $yourname/hello  .`{{execute}}
+`docker build -t hello  .`{{execute}}
 
 You have built a container image that includes both the executable and the text file it needs in order to run. This is one of the big advantages of containers - a container image can act as a package for everything that an application needs in order to run. If you pass the container image to someone else, it has everything they need and the container should run just the same on their system as it does on yours.
 
