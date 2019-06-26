@@ -20,7 +20,7 @@ Docker dynamically allocates the host port. Find it as before:
 
 There are now several instances of your container running. They are displayed in reverse chronological order (newest first) so you will want the host port from the first entry in the list. Check that there is a response on this host port. 
 
-`curl locahost:`{{copy}}
+`curl localhost:`{{copy}}
 
 # Omit the -P option
 

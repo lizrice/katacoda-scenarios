@@ -3,7 +3,7 @@
   "title": "Container basics: containers and images",
   "description": "In this section we'll look at what a container is, and what a container image is",
   "difficulty": "beginner",
-  "time": "2 minutes",
+  "time": "15 minutes",
   "details": {
     "steps": [{
       "title": "Write a simple web server",
