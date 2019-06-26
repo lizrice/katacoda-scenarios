@@ -1,4 +1,4 @@
-Next we'll build a container image that encapsulates your app.
+In this step you'll build a container image that encapsulates your app.
 
 **In the terminal you should see a prompt asking for your username on Docker Hub.** This is going to be stored in an environment variable for use in later commands.
 
@@ -33,7 +33,11 @@ You should see a few container images listed, including one called *$yourname/he
 
 Your image has the **tag** *latest*. This is the default if you don't specify a tag.
 
-# Notes and further reading
+## Next step
+
+You have a container image! In the next step we'll run a container based on this image. Before we do that, if you'd like to learn more about how container images are identified, here are some optional extra reading and resources. 
+
+### Notes and further reading
 
 When you are pulling and pushing images from and to container registries (like Docker Hub) You can refer to your image in a few different ways:
 
@@ -49,5 +53,3 @@ Read more about image IDs and tags:
 * [Explaining Docker Image IDs](https://windsock.io/explaining-docker-image-ids/)
 * [Docker Tag vs Hash: A Lesson in Deterministic Ops](https://medium.com/@tariq.m.islam/container-deployments-a-lesson-in-deterministic-ops-a4a467b14a03)
 * [Using Docker tags to mess with people's minds](https://medium.com/microscaling-systems/using-docker-tags-to-mess-with-peoples-minds-367bb2c93bd0)
-
-
