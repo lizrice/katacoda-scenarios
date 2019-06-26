@@ -10,11 +10,6 @@
       "text": "step1.md"
     },
     {
-      "title": "Enter your Docker Hub username",
-      "text": "get_username.md",
-      "code": "username.sh"
-    },
-    {
       "title": "Put your app into a container image",
       "text": "step2.md"
     },
