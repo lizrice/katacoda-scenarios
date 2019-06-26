@@ -7,8 +7,7 @@
   "details": {
     "steps": [{
       "title": "Write a simple web server",
-      "text": "step1.md",
-      "courseData": "makeDir.sh"
+      "text": "step1.md"
     },
     {
       "title": "Put your app into a container image",
@@ -24,7 +23,8 @@
     }],
     "intro": {
       "text": "intro.md",
-      "credits": ""
+      "credits": "",
+      "courseData": "makeDir.sh"
     },
     "finish": {
       "text": "finish.md"
@@ -40,6 +40,7 @@
   },
   "files": [
     "hello.go",
+    "text/response",
     "Dockerfile"
   ]
 }

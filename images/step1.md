@@ -23,7 +23,6 @@ func main() {
 		}
 
 		fmt.Printf("response: %s\n", response)
-		response = []byte("hello")
 		w.Write(response)
 	})
 
