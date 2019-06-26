@@ -7,14 +7,22 @@ Write a basic web server in Go that will respond to a request on port 8080 with 
 <pre class="file" data-filename="hello.go" data-target="replace">
 package main
 
-import "net/http"
+import (
+  "net/http"
+  "fmt"
+  "os"
+)
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("hello world\n"))
 	})
 
-	http.ListenAndServe(":8080", nil)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+	  fmt.Printf("serving: %v\n", err)
+	  os.Exit(1)
+	}
 }
 </pre>
 
