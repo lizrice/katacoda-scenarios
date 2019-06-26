@@ -13,18 +13,25 @@ In the *PORTS* column you should see `0.0.0.0:18080->8080/tcp`.
 Only one application can bind to a port at one time. The Go web server you have written is hard-coded to bind to port 8080. See what happens if you try to run more than one instance of the app. 
 
 `./hello &`{{execute}}
+
 `./hello`{{execute}}
 
-You should see an error telling you that the address is already in use. 
+You should see an error telling you that the address is already in use.
+
+The second instance exited on error, but the first is still running, so let's kill it:
+
+`kill %1`{{execute}}
 
 When we run a container, we can have multiple instances running simultaneously by using different host ports. Try it by running another instance of the container, this time using host port 18081: 
 
 `docker run -d -p 18081:8080 $yourname/hello`{{execute}}
+
 `docker ps`{{execute}}
 
 You should have two instances of the container running. You can make requests to either of them:
 
 `curl localhost:18080`{{execute}}
+
 `curl localhost:18081`{{execute}}
 
 Inside their containers, both instances of the app are binding to port 8080, but because each container has its own network namespace, these are not the same port from the host machine's perspective.
@@ -36,6 +43,7 @@ You can run any number of instances of the same container on a host, provided th
 You can specify just the container port number, and Docker will pick one of the available host ports for you. 
 
 `docker run -d -p 8080 $yourname/hello`{{execute}}
+
 `docker ps`{{execute}}
 
 The output from the `docker ps` command shows you the host port number that has been chosen. Can you find it? Add the host port number to the following curl command to check whether you've correctly identified it.

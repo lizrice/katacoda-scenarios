@@ -1,6 +1,6 @@
 Start by writing a simple Go web server application. 
 
-## Write your hello world web server
+## Hello world
 
 Write a basic web server in Go that will respond to a request on port 8080 with a simple message like "hello world". The editor pane on the top right of this screen is already set up to edit a file called `hello.go`. You can click the button below to copy the code into that file. 
 

@@ -8,7 +8,8 @@ EXPOSE 8080
 # Build and run the container image
 
 `docker build -t $yourname/hello .`{{execute}}
-`docker run -d -P $yourname/hello`
+
+`docker run -d -P $yourname/hello`{{execute}}
 
 * As before, the -d option runs the container in the background so we can continue using the terminal
 * The -P option tells Docker to expose the port built into the container image
@@ -25,7 +26,8 @@ There are now several instances of your container running. They are displayed in
 
 You can also try running the container without the -P option, but in this case there is no exposed port so you won't be able to access it.
 
-`docker run -d $yourame/hello`{{execute}}
+`docker run -d $yourname/hello`{{execute}}
+
 `docker ps`{{execute}}
 
 You will see an entry showing `8080/tcp` but this is just the container port. There is no mapping to a host port. (If you find you can get a response on port 8080, check that you aren't still running your hello application directly by running `ps`{{execute}}).

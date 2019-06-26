@@ -28,3 +28,9 @@ or:
 ## Next step
 
 You specified that the host port would be 18080 with the -p parameter; you also specified that the port to access inside the container is 8080. In the next step we'll see some other options for specifying the host and container port values.
+
+# Notes and further reading
+
+In much the same way as in git, you don't have to use the full string of digits to identify a container, you just have to supply enough characters to uniquely identify the container. This is true for container image IDs as well.
+
+In the `docker ps` output you'll also see a randomly-generated, human-readable name for the container. You can give a container a particular name by specifying it on the `docker run` command with the `--name` parameter. Find out more in [this article](https://www.digitalocean.com/community/tutorials/naming-docker-containers-3-tips-for-beginners). 

@@ -19,11 +19,10 @@ CMD ["/hello"]
 
  The next command builds a container image, following the commands in the Dockerfile.
 
-* We'll tag this image as `$yourname/hello`
-* The -f specifies the Dockerfile to use
-* The . means we're building the image in the context of the current directory
-
 `docker build -t $yourname/hello  .`{{execute}}
+
+* The `-t` option specifies the tag, or name, for this image. We'll tag this image as `$yourname/hello`. (See the notes below for more in image names and tags.)
+* The `.` means we're building the image in the context of the current directory
 
 Check that the container image exists.
 
@@ -31,7 +30,7 @@ Check that the container image exists.
 
 You should see a few container images listed, including one called *$yourname/hello*.
 
-Your image has the **tag** *latest*. This is the default if you don't specify a tag.
+Your image has the tag *latest*. This is the default if you don't specify a tag.
 
 ## Next step
 
