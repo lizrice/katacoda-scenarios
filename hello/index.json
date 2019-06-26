@@ -11,7 +11,8 @@
     },
     {
       "title": "Enter your Docker Hub username",
-      "text": "get_username.md"
+      "text": "get_username.md",
+      "code": "username.sh"
     },
     {
       "title": "Put your app into a container image",
