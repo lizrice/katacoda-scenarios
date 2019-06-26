@@ -55,3 +55,11 @@ You should also be able to issue that curl request from a terminal on your lapto
 When you're satisfied that this application works, let's stop it:
 
 `kill %1`{{execute}}
+
+Verify that *hello* is no longer running:
+
+`ps`{{execute}}
+
+## Next step
+
+At this stage you have a compiled Go binary. In the next step we'll build a container image that includes that binary. 
