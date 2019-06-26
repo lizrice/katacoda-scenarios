@@ -24,7 +24,9 @@ func main() {
 
 Clicking on commands, like the line below will copy and execute it in the terminal window on the bottom right of this screen.
 
-`go build -o hello hello.go`{{execute}}
+`CGO_ENABLED=0 go build -o hello hello.go`{{execute}}
+
+We are turning off "CGO_ENABLED" in order to build a standalone binary executable file that we'll be able to use inside a container image, without any other dependencies required.
 
 ## Run your app
 
@@ -62,4 +64,4 @@ Verify that *hello* is no longer running:
 
 ## Next step
 
-At this stage you have a compiled Go binary. In the next step we'll build a container image that includes that binary. 
+At this stage you have a compiled Go binary. In the next step we'll build a container image that includes that binary.
