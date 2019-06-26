@@ -1,18 +1,18 @@
 In this step you'll build a container image that encapsulates your app.
 
-**In the terminal you should see a prompt asking for your username on Docker Hub.** This is going to be stored in an environment variable for use in later commands.
-
 ## Write a Dockerfile
+
+The Dockerfile describes the steps that Docker will take to build your container image.
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
 # Start with the scratch (empty) image
 FROM scratch
 
 # Copy the hello binary into the root directory
-COPY hello hello
+COPY hello /
 
 # Tell Docker what executable to run by default when starting this container
-ENTRYPOINT ["/hello"]
+CMD ["/hello"]
 </pre>
 
 ## Build a container image from this Dockerfile.
