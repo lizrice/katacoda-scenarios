@@ -1,1 +1,1 @@
-You've completed your first Katacoda scenario!
+Congratulations, you've finished this scenario! You should now understand what containers and container images are. 
