@@ -8,8 +8,9 @@ Write a basic web server in Go that will respond to a request on port 8080 with 
 package main
 
 import (
-  "net/http"
   "fmt"
+  "io/ioutil"
+  "net/http"
   "os"
 )
 
