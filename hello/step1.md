@@ -30,7 +30,7 @@ func main() {
 
 ## Compile your app
 
-Clicking on commands, like the line below will copy and execute it in the terminal window on the bottom right of this screen.
+Clicking on commands like the line below, will copy and execute it in the terminal window on the bottom right of this screen.
 
 `CGO_ENABLED=0 go build -o hello hello.go`{{execute}}
 
