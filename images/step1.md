@@ -38,10 +38,14 @@ Compile this app:
 
 `CGO_ENABLED=0 go build -o hello hello.go`{{execute}}
 
-You'll need to define the response file that this application code reads from. 
+You'll need to define the response file that this application code reads from. First let's open the file in the editor:
+
+`text/response`{{open}}
+
+And copy the message into that text file. (Feel free to change it to make it your own!)
 
 <pre class="file" data-filename="text/response" data-target="replace">
-Here's a response!
+Here's a response
 </pre>
 
 
