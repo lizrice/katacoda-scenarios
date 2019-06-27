@@ -59,7 +59,18 @@ Check you get the response you expect when making a request to your application 
 
 `curl localhost:8080`{{execute}}
 
-You should see the text message returned to you.
+You should see 
+* the output from the call to `fmt.Printf` which displays the contents of the response file, and
+* the text message returned to your request.
+
+It should look something like this:
+
+```
+$ curl localhost:8080
+response: Here's a response
+
+Here's a response
+```
 
 ## Stop the application
 
