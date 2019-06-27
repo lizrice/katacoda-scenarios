@@ -33,7 +33,7 @@ The `-q` flag is neat, because you can use the ID as input to other docker conta
 
 The following command gets the logs from the most recently run container:
 
-`docker logs $(docker -ql)`{{execute}}
+`docker logs $(docker ps -ql)`{{execute}}
 
 When you run this you should see any output that has been sent to stdout or stderr. 
 

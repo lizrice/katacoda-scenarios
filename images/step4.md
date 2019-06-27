@@ -6,7 +6,9 @@ In this step we're going to create a different response file, and we're going to
 
 `touch different/response`{{execute}}
 
-Copy the contents into that response file. 
+`different/response`{{open}}
+
+Copy the contents into that response file.
 
 <pre class="file" data-filename="different/response" data-target="replace">
 This is a different response
