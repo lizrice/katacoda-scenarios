@@ -41,13 +41,33 @@ When you run this you should see any output that has been sent to stdout or stde
 
 Want to confirm that stderr also gets written to Docker logs? You could do easily do this by modifying your app.
 
-* Edit `hello.go` to add a line that prints something to stderr. You can do this with `fmt.Fprintf(os.Stderr, "your text here")`:  `hello.go`{{open}}
-* Recompile hello.go: `CGO_ENABLED=0 go build -o hello hello.go`{{execute}}
-* Rebuild the container: `docker build -t hello .`{{execute}}
-* Stop the currently running instance of the container: `docker stop $(docker ps -ql)`{{execute}}
-* Run the container again. `docker run --rm -d -p 18080:8080 hello`{{execute}}
-* Check it's working: `curl localhost:18080`{{execute}}
-* Get the logs: `docker logs $(docker ps -ql)`{{execute}}
+* Edit `hello.go` to add a line that prints something to stderr. You can do this with `fmt.Fprintf(os.Stderr, "your text here\n")`. You decide where it goes, and what it's going to say. 
+
+`hello.go`{{open}}
+
+* Recompile hello.go:
+
+`CGO_ENABLED=0 go build -o hello hello.go`{{execute}}
+
+* Rebuild the container to include your changed app:
+
+`docker build -t hello .`{{execute}}
+
+* Stop the currently running instance of the container:
+
+`docker stop $(docker ps -ql)`{{execute}}
+
+* Run an instance of the new version of the container:
+
+`docker run --rm -d -p 18080:8080 hello`{{execute}}
+
+* Check it's working:
+
+`curl localhost:18080`{{execute}}
+
+* Get the logs:
+
+`docker logs $(docker ps -ql)`{{execute}}
 
 Did you see the output for both stderr and stdout in the logs?
 

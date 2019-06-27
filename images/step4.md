@@ -39,3 +39,10 @@ And this is another response altogether
 The container is able to access that file because that directory is mounted in.
 
 Also note that the container image still has the text file built into it at the location `text/response` but this is overwritten by the mount.
+
+# Notes and further reading
+
+If you have permission to run Docker commands, there is nothing stopping you from mounting *any* directory from the host to make it accessible from the container. This can be a security risk.
+
+* It's possible to [mount directories as read-only](https://docs.docker.com/storage/volumes/#use-a-read-only-volume) so that the container can't affect the contents.
+* See how mounting a sensitive directory like `/etc` into a container can allow a user to escalate their privileges in [this video](https://www.youtube.com/watch?v=ltrV-Qmh3oY).
