@@ -18,6 +18,10 @@
       "text": "step3.md"
     },
     {
+      "title": "Get logs from a container",
+      "text": "step35.md"
+    },
+    {
       "title": "Mounting a directory from the host",
       "text": "step4.md"
     }],
