@@ -52,4 +52,4 @@ The output from the `docker ps` command shows you the host port number that has 
 
 ## Next step
 
-In this example you needed to know what port the containerized app is using, so that you can specify it on the `-p` parameter to the `docker run` command. In the next step you'll see how you can specify the container port number in the Dockerfile, so that this information is built into the container image andyou don't need to know it at runtime.
+In this example you needed to know what port the containerized app is using, so that you can specify it on the `-p` parameter to the `docker run` command. In the next step you'll see how you can specify the container port number in the Dockerfile, so that this information is built into the container image and you don't need to know it at runtime.
