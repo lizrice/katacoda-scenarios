@@ -1,5 +1,7 @@
 As an example, we'll scan an old version of the `mongo` image which is known to have several vulnerabilities. 
 
+## Scanning an image with vulnerabilties
+
 Copy this Dockerfile into the editor (the file will save automatically).
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
@@ -27,6 +29,14 @@ Run `docker build` to execute the steps in this Dockerfile.
 * It's a good idea to used the `--no-cache` argument to force the scan to be re-run even if the image hasn't changed. See the notes for more on why this is necessary.
 
 If microscanner finds a high severity vulnerability, that step will fail, and hence the image build will fail.
+
+## Scan an image without high severity vulnerabilties
+
+Edit the Dockerfile to scan `mongo:latest` instead of the old `mongo:3.2.1` image.
+
+Run the build command, and this time it should succeed:
+
+`docker build --build-arg TOKEN=$token --no-cache .`{{execute}}
 
 # Notes and next step
 
