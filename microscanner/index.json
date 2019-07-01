@@ -12,6 +12,10 @@
     {
       "title": "Scan an image",
       "text": "step2.md"
+    },
+    {
+      "title": "Clean image",
+      "text": "step3.md"
     }],
     "intro": {
       "text": "intro.md",
@@ -30,8 +34,6 @@
     "imageid": "ubuntu"
   },
   "files": [
-    "hello.go",
-    "text/response",
     "Dockerfile"
   ]
 }
