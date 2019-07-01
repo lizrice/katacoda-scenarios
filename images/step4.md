@@ -45,4 +45,4 @@ Also note that the container image still has the text file built into it at the 
 If you have permission to run Docker commands, there is nothing stopping you from mounting *any* directory from the host to make it accessible from the container. This can be a security risk.
 
 * It's possible to [mount directories as read-only](https://docs.docker.com/storage/volumes/#use-a-read-only-volume) so that the container can't affect the contents.
-* See how mounting a sensitive directory like `/etc` into a container can allow a user to escalate their privileges in [this video](https://www.youtube.com/watch?v=ltrV-Qmh3oY).
+* Mounting a sensitive directory like `/etc` or even the root directory into a container can allow a user to escalate their privileges. See an example in [this video](https://youtu.be/ltrV-Qmh3oY?t=700) (This demo uses Kubernetes, but the directory mounting mechanism works in just the same way you have used above).
