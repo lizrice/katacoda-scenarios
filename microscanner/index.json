@@ -1,0 +1,37 @@
+{
+  "pathwayTitle": "An Intro to Containers for Go Programmers",
+  "title": "Vulnerability scanning for container images",
+  "description": "In this section we'll see how to scan container images for vulnerabilities",
+  "difficulty": "beginner",
+  "time": "15 minutes",
+  "details": {
+    "steps": [{
+      "title": "Get your MicroScanner token",
+      "text": "step1.md"
+    },
+    {
+      "title": "Scan an image",
+      "text": "step2.md"
+    }],
+    "intro": {
+      "text": "intro.md",
+      "credits": ""
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uisettings": "go",
+    "uimessage1": "\u001b[36mYour Interactive Bash Terminal.\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "files": [
+    "hello.go",
+    "text/response",
+    "Dockerfile"
+  ]
+}
