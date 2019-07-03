@@ -13,5 +13,3 @@ Also, even if you and your team are writing self-contained binary executables, i
 ## Vulnerability scanning with MicroScanner
 
 There are several vulnerability scanners for container images - some open source, some free, and some commercial. In this section we'll look at scanning container images for vulnerabilities with the free tool, MicroScanner. Microscanner is very simple to incorporate into your build processes because it's added as a few steps in your Dockerfile.
-
-- Adding MicroScanner to your Dockerfile

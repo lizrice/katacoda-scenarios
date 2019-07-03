@@ -28,7 +28,7 @@ Run `docker build` to execute the steps in this Dockerfile.
 * The `--build-arg` parameter passes in an argument that matches the `ARG` command in the Dockerfile
 * It's a good idea to used the `--no-cache` argument to force the scan to be re-run even if the image hasn't changed. See the notes for more on why this is necessary.
 
-If microscanner finds a high severity vulnerability, that step will fail, and hence the image build will fail.
+If microscanner finds a high severity vulnerability, that step will fail, and hence the image build will fail. You should see `The command '/bin/sh -c /microscanner ${TOKEN}' returned a non-zero code: 4` as the last line of the output.
 
 ## Scan an image without high severity vulnerabilties
 
@@ -37,6 +37,8 @@ Edit the Dockerfile to scan `mongo:latest` instead of the old `mongo:3.2.1` imag
 Run the build command, and this time it should succeed:
 
 `docker build --build-arg TOKEN=$token --no-cache .`{{execute}}
+
+You should see the command output finishes with `Successfully built <image ID>`.
 
 # Notes and next step
 
