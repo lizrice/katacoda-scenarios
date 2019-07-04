@@ -44,8 +44,6 @@ FROM mongo:latest
 
 Try this with both `mongo:3.2.1` and `mongo:latest` by editing the Dockerfile. Note that you have to change the image in two places in the Dockerfile!
 
-## Notes and further reading
+## Next step
 
-* Luke Bond's [Microscanner wrapper](https://github.com/lukebond/microscanner-wrapper) for automatically creating Microscanner Dockerfiles
-* More on [Docker multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/)
-* Liz's talk about vulnerability scanning at [Cloud Native London](https://beta.skillsmatter.com/skillscasts/11727-what-s-so-hard-about-container-vulnerability-scanning) (requires sign-up)
+It's annoying to have to change the image name (in two places!) when you want to scan an image, right? In the next step we'll see how we can pass in the image name as an argument.
