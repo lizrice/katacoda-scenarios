@@ -10,7 +10,7 @@
       "text": "step1.md"
     },
     {
-      "title": "Put your app into a container image",
+      "title": "Isolate the hostname",
       "text": "step2.md"
     }],
     "intro": {
@@ -23,6 +23,7 @@
   },
   "environment": {
     "uilayout": "editor-terminal",
+    "terminals": [{"name": "Terminal 2", "target": "host01"}],
     "uisettings": "go",
     "uimessage1": "\u001b[36mYour Interactive Bash Terminal.\u001b[m\r\n"
   },

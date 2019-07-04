@@ -6,9 +6,9 @@ First let's start by writing some code that will execute an arbitrary command.
 package main
 
 import (
-  "exec"
   "fmt"
   "os"
+  "os/exec"
 )
 
 func main() {
@@ -47,6 +47,14 @@ Build and run this command:
 * `echo hello` is the command we want to run
 
 At this stage there is no containerization - your program runs the command in a regular Linux process. 
+
+Note that you can also run a shell as your arbitrary command:
+
+`go run main.go run bash`{{execute}}
+
+You'll see a command prompt, but notice that the `== Finished ==` message doesn't get output straight way. You'll only see that when you exit this shell: 
+
+`exit`{{execute}}
 
 # Next step
 
