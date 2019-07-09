@@ -46,7 +46,7 @@ Paste the following lines into the `run()` function at line 26.
 
 </pre>
 
-You will also have to change `err := cmd.Run()` to `err = cmd.Run()` since we're now using that err variable earlier in the same function.
+You will also have to change `err := cmd.Run()` to `err = cmd.Run()` (at around line 48) since we're now using that err variable earlier in the same function.
 
 ## Notes on executing a command in the new directory
 
@@ -70,7 +70,7 @@ Compare what's in `/bin` on the machine with what's in `/bin` inside `alpine`:
 
 `ls /root/alpine/bin`{{execute T1}}
 
->>Q1: Which of the following commands do you think you'll be able to run inside `alpine`?
+>>Q1: Which of the following commands do you think you'll be able to run inside `alpine`?<<
 [*] echo
 [ ] bash
 [*] sh

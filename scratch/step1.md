@@ -36,7 +36,7 @@ func run() {
 	cmd.Stderr = os.Stderr
 
 	// This is where we run the command
-    err = cmd.Run()
+    err := cmd.Run()
     if err != nil {
       panic(fmt.Sprintf("running: %v\n", err))
     }
