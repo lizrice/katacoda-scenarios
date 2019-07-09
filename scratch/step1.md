@@ -50,11 +50,31 @@ At this stage there is no containerization - your program runs the command in a 
 
 Note that you can also run a shell as your arbitrary command:
 
-`go run main.go run bash`{{execute}}
+`go run main.go run bash`{{execute T1}}
 
-You'll see a command prompt, but notice that the `== Finished ==` message doesn't get output straight way. You'll only see that when you exit this shell: 
+You'll see a command prompt, but notice that the `== Finished ==` message doesn't get output straight way. You'll only see that when you exit this shell:
 
-`exit`{{execute}}
+`exit`{{execute T1}}
+
+## Use `ps` to check what is running
+
+You can use a second terminal window to confirm what's running. First check what processes are running under your user ID:
+
+`ps -af`{{execute T2}}
+
+Run your program again (this will run in the first terminal window):
+
+`go run main.go run bash`{{execute T1}}
+
+While your program is still running, check the processes again:
+
+`ps -af`{{execute T2}}
+
+* 
+
+Finally, quit out of your program:
+
+`exit`{{execute T1}}
 
 # Next step
 

@@ -1,5 +1,7 @@
 Now you'll start creating something that behaves a bit like a container! 
 
+## UTS Namespace
+
 Copy the following and insert it at line 30 in main.go. 
 
 <pre class="file" data-target="clipboard">
@@ -44,12 +46,18 @@ This illustrates one of the key aspects of containerization. The shell process h
 
 You can also change the hostname on the VM without affecting the namespace that you'll see in the shell process. Try it!
 
+These two commands run on Terminal 2 (the virtual machine):
+
 `hostname vm-host`{{execute T2}}
 
 `hostname`{{execute T2}}
+
+The next command runs on Terminal 1 (your containerized shell):
 
 `hostname`{{execute T1}}
 
 ## Next step
 
-In the next step you'll give the shell process its own namespace for process IDs.
+In the next step you'll give the shell process its own namespace for process IDs. Don't forget to quit out of the currently running shell. 
+
+`exit`{{execute T1}}
