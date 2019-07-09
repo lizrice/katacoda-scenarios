@@ -1,6 +1,6 @@
 The aim here is that when you run `ps` inside a container, you should only see processes running inside that container, not on the host. 
 
-There are several different types of namespace, and in the previous step we used the UTS namespace to give the process a hostname that is independent of the host's own hostname. Another type of namespace is the process ID (PID) namespace. 
+There are several different types of namespace, and earlier in this scenario we used the UTS namespace to give the process a hostname that is independent of the host's own hostname. Another type of namespace is the process ID (PID) namespace.
 
 ## Create a PID namespace
 
