@@ -70,9 +70,8 @@ Compare what's in `/bin` on the machine with what's in `/bin` inside `alpine`:
 
 `ls /root/alpine/bin`{{execute T1}}
 
->>Q1: Which of the following commands do you think you'll be able to run inside `alpine`?<<
+>>Q1: Which of the following commands do you think you'll be able to run inside your container program?<<
 [*] echo
 [ ] bash
 [*] sh
 [*] ls
-
