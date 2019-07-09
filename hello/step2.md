@@ -51,7 +51,7 @@ The *name* is the name of the image - in our case we have used `hello`.
 
 The *image digest* is a hash of the image contents, and it's an immutable identifier for that exact version of the image. If you rebuild the image, it will have a different hash.
 
-The *image digest* and the *tag* are both ways of identifying versions of the same image. The digest is unique to the particular image, but you can give any image any tag you like. The same tag might be re-used to refer to different versions of the image. In addition, a given image can have any unmber of different tags. 
+The *image digest* and the *tag* are both ways of identifying versions of the same image. The digest is unique to the particular image, but you can give any image any tag you like. The same tag might be re-used to refer to different versions of the image. In addition, a given image can have any number of different tags. 
 
 In practice, tags are often used to hold the semantic version numbers. For example, if the most recent version of a particular component is version 2.1.3, the same image might have tags "2", "2.1", "2.1.3" and "latest". If someone pulls a version without specifying the tag, they will get this version because the tag defaults to "latest".
 
