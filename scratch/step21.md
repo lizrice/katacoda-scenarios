@@ -72,13 +72,17 @@ You should see the output from both `run` and `child` invocations of the process
 Now we have an opportunity to change the hostname within the child process, which has the new UTS namespace, before executing the arbitrary command. Insert the following lines at line 50:
 
 <pre class="file" data-target="clipboard">
+    // Set the hostname for the container
     err := syscall.Sethostname([]byte("container"))
     if err != nil {
       panic(fmt.Sprintf("sethostname: %v\n", err))
     }
+
 </pre>
 
-Now, if you run a shell in your container you should find that the hostname has been set up for your container: 
+You will also need to change `:=` to `=` at line 62 because the `err` variable is now being used earlier in this function.
+
+Now, if you run a shell in your container you should find that the hostname has been set up for your container:
 
 `go run main.go run bash`{{execute T1}}
 

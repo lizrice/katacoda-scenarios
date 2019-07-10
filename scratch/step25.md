@@ -28,12 +28,12 @@ Now you can use this `alpine` directory as the root for your container.
 
 You change the root for the current process with `syscall.Chroot()`. This leaves you in an undefined location in the new directory hierarchy! So you also need to explicitly change directory with `syscall.Chdir()`.
 
-Copy the following lines and insert them into the `run()` function at line 26.
+Copy the following lines and insert them into the `child()` function at line 55.
 
 <pre class="file" data-target="clipboard">
 
     // Change the root directory
-    err := syscall.Chroot("/root/alpine")
+    err = syscall.Chroot("/root/alpine")
     if err != nil {
       panic(fmt.Sprintf("chroot: %v\n", err))
     }
@@ -45,8 +45,6 @@ Copy the following lines and insert them into the `run()` function at line 26.
     }
 
 </pre>
-
-You will also have to change `err := cmd.Run()` to `err = cmd.Run()` (at around line 48) since we're now using that err variable earlier in the same function.
 
 ## Notes on executing a command in the new directory
 

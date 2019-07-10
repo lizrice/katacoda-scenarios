@@ -4,7 +4,7 @@ There are several different types of namespace, and earlier in this scenario we 
 
 ## Create a PID namespace
 
-Edit the code that's now at around lines 43-45 so that it requests a new PID namespace as well as a new UTS namespace:
+Edit the code that's now at around lines 35-37 so that it requests a new PID namespace as well as a new UTS namespace:
 
 <pre class="file" data-target="clipboard">
 	cmd.SysProcAttr = &syscall.SysProcAttr{
@@ -12,7 +12,7 @@ Edit the code that's now at around lines 43-45 so that it requests a new PID nam
     }
 </pre>
 
-At the moment the code prints out what commands it's going to execute. Edit that code (around like 24) so that it also shows the current process ID:
+At the moment the code prints out what commands it's going to execute. Edit lines 26 and 48 to also shows the current process ID:
 
 <pre class="file" data-target="clipboard">
 	fmt.Printf("Running %v, process ID %d\n", os.Args[2:], os.Getpid())
@@ -22,6 +22,11 @@ At the moment the code prints out what commands it's going to execute. Edit that
 Ask this program to run a shell:
 
 `go run main.go run sh`{{execute T1}}
+
+* The `run()` function has a high-numbered process ID that has been allocated from the host's process namespace.
+* The `child()` function has process ID 1, because it is the first process in the new process namespace.
+
+## Running ps
 
 What do you expect to see when you run `ps` in this shell?
 

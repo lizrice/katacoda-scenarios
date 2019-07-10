@@ -36,7 +36,7 @@ Check the hostname within this shell:
 
 `hostname`{{execute T1}}
 
-You should see that this has changed. But this has only taken effect without your "container". There is a second terminal window onto the VM. If you run `hostname` directly on the VM you should see the original hostname hasn't changed.
+You should see that this has changed. But this has only taken effect within your "container". There is a second terminal window onto the VM. If you run `hostname` directly on the VM you should see the original hostname hasn't changed.
 
 `hostname`{{execute T2}}
 
