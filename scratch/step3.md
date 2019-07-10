@@ -32,7 +32,7 @@ What do you expect to see when you run `ps` in this shell?
 
 `ps -eaf`{{execute T1}}
 
-At this mount you should see no entries. Why doesn't this show at least an entry for the `ps` command you were just running? This is because of the way `ps` works.
+At this point you should see no entries. Why doesn't this show at least an entry for the `ps` command you were just running? This is because of the way `ps` works.
 
 ## What does `ps` do
 
