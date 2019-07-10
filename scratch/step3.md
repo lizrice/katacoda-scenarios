@@ -4,16 +4,15 @@ There are several different types of namespace, and earlier in this scenario we 
 
 ## Create a PID namespace
 
-Edit the code that's now at lines 31-33 so that it requests a new PID namespace as well as a new UTS namespace:
+Edit the code that's now at around lines 43-45 so that it requests a new PID namespace as well as a new UTS namespace:
 
 <pre class="file" data-target="clipboard">
-
 	cmd.SysProcAttr = &syscall.SysProcAttr{
 		Cloneflags:   syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID,
     }
 </pre>
 
-At the moment the code prints a line to say what commands it's going to execute. Edit that line so that it also shows the current process ID: 
+At the moment the code prints out what commands it's going to execute. Edit that code (around like 24) so that it also shows the current process ID:
 
 <pre class="file" data-target="clipboard">
 	fmt.Printf("Running %v, process ID %d\n", os.Args[2:], os.Getpid())
@@ -22,42 +21,41 @@ At the moment the code prints a line to say what commands it's going to execute.
 
 Ask this program to run a shell:
 
-`go run main.go run bash`{{execute T1}}
+`go run main.go run sh`{{execute T1}}
 
-What do you expect to see when you run `ps` in this shell? 
+What do you expect to see when you run `ps` in this shell?
 
 `ps -eaf`{{execute T1}}
 
-This shows all the processes on the host! So you might have the impression that nothing has been achieved with that process ID namespace. 
-
-Stop this program:
-`exit`{{execute T1}}
+At this mount you should see no entries. Why doesn't this show at least an entry for the `ps` command you were just running? This is because of the way `ps` works.
 
 ## What does `ps` do
 
-The `ps` program finds out about running programs by looking in the `/proc` directory, which holds information about all the running processes. Take a look inside it.
+The `ps` program finds out about running programs by looking in the `/proc` directory, which holds information about all the running processes. Take a look at `/proc` on the host:
 
-`ls /proc`{{execute T1}}
+`ls /proc`{{execute T2}}
 
 This directory is mounted as a pseudo-filesystem so that the kernel knows that it should write process information here. You can see this by looking at the mounts: 
 
-`mount | grep proc`{{execute T1}}
+`mount | grep proc`{{execute T2}}
 
-You're going to need a different proc directory for the container.
+You should see a mount of type `proc` at `/proc`.
 
-## Download Alpine Linux
+However, inside your "container" there is nothing inside the `/proc` directory:
 
-Let's download a copy of Alpine Linux that we will use for the container image.
+`ls /proc`{{execute T1}}
 
-`mkdir alpine`{{execute T2}}
+If you try to run `mount` inside your "container" you will see an error:
 
-`cd alpine`{{execute T2}}
+`mount`{{execute T1}}
 
-`curl -o alpine.tar.gz http://dl-cdn.alpinelinux.org/alpine/v3.10/releases/x86_64/alpine-minirootfs-3.10.0-x86_64.tar.gz`{{execute T2}}
+In the next step you will add the mount point for proc, but first, exit the program.
 
-`tar xvf alpine.tar.gz`{{execute T2}}
+`exit`{{execute T1}}
 
-Now we can use this as the root 
+## Next step
+
+In the next step we will add a mount point for the proc pseudo-filesystem, so that you can run `ps` effectively inside your container.
 
 
 

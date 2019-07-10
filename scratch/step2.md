@@ -58,6 +58,6 @@ The next command runs on Terminal 1 (your containerized shell):
 
 ## Next step
 
-In the next step you'll give the shell process its own namespace for process IDs. Don't forget to quit out of the currently running shell. 
+In the next step you'll modify the program so that it sets up the hostname for the container automatically. Before moving on, terminate the program.
 
 `exit`{{execute T1}}

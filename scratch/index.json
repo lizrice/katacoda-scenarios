@@ -14,6 +14,10 @@
       "text": "step2.md"
     },
     {
+      "title": "Isolate the hostname",
+      "text": "step21.md"
+    },
+    {
       "title": "Give the container its own root",
       "text": "step25.md"
     },
@@ -24,6 +28,10 @@
     {
       "title": "Isolate the processes",
       "text": "step3.md"
+    },
+    {
+      "title": "Isolate the processes",
+      "text": "step35.md"
     }],
     "intro": {
       "text": "intro.md",

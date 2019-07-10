@@ -28,7 +28,7 @@ Now you can use this `alpine` directory as the root for your container.
 
 You change the root for the current process with `syscall.Chroot()`. This leaves you in an undefined location in the new directory hierarchy! So you also need to explicitly change directory with `syscall.Chdir()`.
 
-Paste the following lines into the `run()` function at line 26.
+Copy the following lines and insert them into the `run()` function at line 26.
 
 <pre class="file" data-target="clipboard">
 

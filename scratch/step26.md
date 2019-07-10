@@ -12,7 +12,7 @@ Explore what's accessible within the container. Here are a few examples you migh
 
 `pwd`{{execute T1}}
 
-When you're done, don't forget to exit the program. 
+When you're done, don't forget to exit the program.
 
 `exit`{{execute T1}}
 
