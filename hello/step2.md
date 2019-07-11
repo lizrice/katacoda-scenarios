@@ -12,7 +12,7 @@ FROM scratch
 COPY hello /
 
 # Tell Docker what executable to run by default when starting this container
-CMD ["/hello"]
+ENTRYPOINT ["/hello"]
 </pre>
 
 ## Build a container image from this Dockerfile.
