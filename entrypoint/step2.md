@@ -55,5 +55,5 @@ RUN ["echo", "$HOME"]
 
 In this example we used RUN so that we could see the differences in output during the image build process. The same shell and exec forms can be used in ENTRYPOINT and CMD commands.
 
-As an optional exercise, you could try changing the Dockerfile to specify an ENTRYPOINT and CMD arguments in both shell and exec form. , and see how this behaves when you run the container.
+As an optional exercise, you could try changing the Dockerfile to specify an ENTRYPOINT and CMD arguments in both shell and exec form, and see how this behaves when you run the container.
 
