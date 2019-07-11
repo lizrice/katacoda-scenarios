@@ -19,7 +19,7 @@ When you run this image,
 
 `docker run -t ls:entry-cmd`{{execute}}
 
-If you add your own arguments, these will replace what was specified in CMD. So for example the following lists the contents of `/tmp` and not the contents of `/bin`.
+If you add your own arguments, these will replace what was specified in CMD. So for example the following lists the contents of `/lib` and not the contents of `/bin`.
 
 `docker run -t ls:entry-cmd /lib`{{execute}}
 
