@@ -17,6 +17,8 @@ RUN echo this is the shell form
 
 `docker build -t echo:shell .`{{execute}}
 
+You will see the output from the echo command during the build process. 
+
 In the shell form, shell parameters will be expanded:
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
@@ -48,3 +50,10 @@ RUN ["echo", "$HOME"]
 </pre>
 
 `docker build -t echo:exec .`{{execute}}
+
+## Further exercises
+
+In this example we used RUN so that we could see the differences in output during the image build process. The same shell and exec forms can be used in ENTRYPOINT and CMD commands.
+
+As an optional exercise, you could try changing the Dockerfile to specify an ENTRYPOINT and CMD arguments in both shell and exec form. , and see how this behaves when you run the container.
+
