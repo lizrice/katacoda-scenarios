@@ -17,7 +17,15 @@ RUN echo this is the shell form
 
 `docker build -t echo:shell .`{{execute}}
 
-`docker run echo:shell`{{execute}}
+In the shell form, shell parameters will be expanded:
+
+<pre class="file" data-filename="Dockerfile" data-target="replace">
+FROM alpine
+
+RUN echo $HOME
+</pre>
+
+`docker build -t echo:shell .`{{execute}}
 
 ## Exec form
 
@@ -31,5 +39,12 @@ RUN ["echo", "this", "is", "the exec form"]
 
 `docker build -t echo:exec .`{{execute}}
 
-`docker run echo:shell`{{execute}}
+In the exec form, shell variables are not expanded.
 
+<pre class="file" data-filename="Dockerfile" data-target="replace">
+FROM alpine
+
+RUN ["echo", "$HOME"]
+</pre>
+
+`docker build -t echo:exec .`{{execute}}

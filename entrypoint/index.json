@@ -10,8 +10,12 @@
       "text": "step1.md"
     },
     {
-      "title": "Image commands",
+      "title": "Image entrypoints and commands",
       "text": "step15.md"
+    },
+    {
+      "title": "Image commands",
+      "text": "step17.md"
     },
     {
       "title": "Shell and exec forms",

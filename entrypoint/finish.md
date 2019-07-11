@@ -1,7 +1,1 @@
-Congratulations, you've finished this scenario! Here's what you have covered:
-
-- Building a container image containing additional files
-- Mounting directories from the host into the container
-- Stdout and stderr are accessible through the `docker logs` command
-
-You have also seen how to use `docker ps -q` to get running container IDs that you can then pass in to other docker commands. 
+Congratulations, you've got another scenario under your belt! You should now know the difference between ENTRYPOINT and CMD, and between the shell and exec form of commands in Dockerfiles. 
