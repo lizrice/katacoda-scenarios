@@ -4,7 +4,7 @@ In this step you'll write a Dockerfile that compiles your application and create
 
 In order to compile your Go code you need Go installed. In this step we'll use a container base image that already includes Go, so that `go` is available *during the build step*. 
 
-To understand this, you first have to appreciate that when you run `docker build` it creates a (temporary) container, in which it runs all the instructions defined in the Docker file. At first, there is nothing in that container's filesystem, but as it works through each instruction in the build, the filesystem gets modified. For example, when you have a `FROM` command this installs the base image into the temporary container. 
+To understand this, you first have to appreciate that when you run `docker build` it creates a (temporary) container, in which it runs all the instructions defined in the Docker file. At first, there is nothing in that container's filesystem, but as it works through each instruction in the build, the filesystem gets modified. For example, when you have a `FROM` command this installs the base image into the temporary container.
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
 # Start with a Golang base image
@@ -23,9 +23,9 @@ RUN CGO_ENABLED=0 go get -v ./...
 ENTRYPOINT ["hello"]
 </pre>
 
-## Build a container image from this Dockerfile.
+## Build a container image from this Dockerfile
 
- The next command builds a container image, following the commands in the Dockerfile.
+Build the image using this Dockerfile.
 
 `docker build -t hello  .`{{execute}}
 
@@ -42,7 +42,7 @@ Your image has the tag *latest*. This is the default if you don't specify a tag.
 
 ## Next step
 
-You have a container image! In the next step we'll run a container based on this image. Before we do that, if you'd like to learn more about how container images are identified, here are some optional extra reading and resources. 
+You have a container image! In the next step we'll run a container based on this image. Before we do that, if you'd like to learn more about how container images are identified, here are some optional extra reading and resources.
 
 ### Notes and further reading
 

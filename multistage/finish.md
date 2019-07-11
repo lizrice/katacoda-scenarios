@@ -1,5 +1,1 @@
-Congratulations, you've finished this scenario! Here's what you have covered:
-
-- Building a container image from a Dockerfile 
-- Running a container
-- Network port mapping
+Well done! Now you can build your application into an image in one step

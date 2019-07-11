@@ -1,33 +1,17 @@
 {
   "pathwayTitle": "An Intro to Containers for Go Programmers",
-  "title": "Container basics: containers and images",
-  "description": "In this section we'll look at what a container is, and what a container image is",
-  "difficulty": "beginner",
-  "time": "20-30 minutes",
+  "title": "Go apps and multistage image builds",
+  "description": "In this scenario you will learn how to build your Go code into an image using multistage builds",
+  "difficulty": "intermediate",
+  "time": "10 minutes",
   "details": {
     "steps": [{
       "title": "Write a simple web server",
       "text": "step1.md"
     },
     {
-      "title": "Put your app into a container image",
+      "title": "Compile and build in one Dockerfile",
       "text": "step2.md"
-    },
-    {
-      "title": "Run your container image",
-      "text": "step3.md"
-    },
-    {
-      "title": "Container port mapping",
-      "text": "step4.md"
-    },
-    {
-      "title": "Exposing a port through the Dockerfile",
-      "text": "step5.md"
-    },
-    {
-      "title": "Run your container on your own laptop",
-      "text": "step6.md"
     }],
     "intro": {
       "text": "intro.md",
