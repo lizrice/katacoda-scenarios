@@ -11,6 +11,10 @@
     },
     {
       "title": "Image commands",
+      "text": "step15.md"
+    },
+    {
+      "title": "Shell and exec forms",
       "text": "step2.md"
     }],
     "intro": {
