@@ -36,6 +36,12 @@ Run a container from this image:
 * The image ENTRYPOINT defines which executable gets run when you run the container
 * Any other arguments you pass in are also passed to that executable
 
+## Next step
+
+You have compiled the Go application and built a Docker image in one step. 
+
+In the next step we will see that although this container image works, it's not as efficient as it could be. But first let's check that you understand how the names of the executable and the image have worked here.
+
 >>Q1: What is the name of the executable that is built into the container image?<<
 (*) hello
 ( ) example
@@ -45,6 +51,3 @@ Run a container from this image:
 ( ) hello
 (*) example
 ( ) teapot
-
-## Next step
-
