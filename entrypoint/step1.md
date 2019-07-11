@@ -17,14 +17,18 @@ Build this image.
 
 When you run this image, `ls` will be run by default. You can specify additional parameters at the end of your `docker run` command and they will be appended to the entrypoint:
 
-`docker run -t echo:entrypoint /bin`{{execute}}
+`docker run -t ls:entrypoint`{{execute}}
 
-`docker run -t echo:entrypoint -ltr`{{execute}}
+`docker run -t ls:entrypoint /bin`{{execute}}
 
-`docker run -t echo:entrypoint`{{execute}}
+`docker run -t ls:entrypoint -ltr`{{execute}}
 
+## Overriding the entrypoint
 
+Because the entrypoint is set up as `ls`, if you want to run a different executable in this container you'll have to explicitly override with the `--entrypoint` parameter.
+
+`docker run -t ls:entrypoint --entrypoint echo hello`{{execute}}
 
 ## Next step
 
-At this stage you have a compiled Go binary and a text file that it reads from. In the next step we'll build a container image that includes both the binary and the text file.
+Next we'll see what happens if we add a CMD command to the Dockerfile. 
