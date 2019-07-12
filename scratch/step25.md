@@ -1,4 +1,4 @@
-When you run a container, it has access to files and directories that come from its container image. We need to give our container is own set of files and directories. For illustration let's use Alpine Linux.
+When you run a container, it has access to files and directories that come from its container image. We need to give our container its own set of files and directories. For illustration let's use Alpine Linux.
 
 ## Download Alpine Linux
 

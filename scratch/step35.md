@@ -6,7 +6,7 @@ The flag `CLONE_NEWNS` tells the kernel to create a new mount namespace for the 
 		Cloneflags:   syscall.CLONE_NEWUTS | syscall.CLONE_NEWPID | syscall.CLONE_NEWNS,
 </pre>
 
-In the `child()` function, add the code do the `proc` mount. This has to happen after the `chroot` call so that it refers to `/proc` from the container's perspective, so add this at line 68:
+In the `child()` function, add the code to do the `proc` mount. This has to happen after the `chroot` call so that it refers to `/proc` from the container's perspective, so add this at line 68:
 
 <pre class="file" data-target="clipboard">
     // Mount the proc pseudo-filesystem
