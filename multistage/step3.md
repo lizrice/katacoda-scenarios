@@ -25,7 +25,7 @@ For a Go application it's common to have a two-stage image build process:
 
 Try it out with this Dockerfile:
 
-pre class="file" data-filename="Dockerfile" data-target="replace">
+<pre class="file" data-filename="Dockerfile" data-target="replace">
 # First stage: start with a Golang base image
 FROM golang:1.12-alpine3.10
 
