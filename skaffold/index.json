@@ -6,15 +6,15 @@
   "time": "20-30 minutes",
   "details": {
     "steps": [{
-      "title": "Write a simple web server",
+      "title": "Write a simple Go application",
       "text": "step1.md"
     },
     {
-      "title": "Put your app into a container image",
+      "title": "Skaffold configuration",
       "text": "step2.md"
     },
     {
-      "title": "Run your container image",
+      "title": "Run your app under Skaffold",
       "text": "step3.md"
     },
     {

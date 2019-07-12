@@ -21,7 +21,7 @@ The pod consists of one container which will run the `hello` image.
 
 The `skaffold.yaml` file describes the stages that Skaffold is going to take responsibility for.
 
-<pre class="file" data-filename="Dockerfile" data-target="replace">
+<pre class="file" data-filename="skaffold.yaml" data-target="replace">
 apiVersion: skaffold/v1beta11
 kind: Config
 build:
