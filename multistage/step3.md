@@ -1,6 +1,6 @@
 Let's see how big this image is. The next command shows the size of the image in bytes
 
-`docker inspect example --format='{{.Size}}'`{{execute}}
+`docker inspect example:single --format='{{.Size}}'`{{execute}}
 
 This gives the size in bytes. You should see a result equivalent to around 350MB.
 
@@ -50,32 +50,38 @@ ENTRYPOINT ["/hello"]
 
 Build and run an image built with this version of the Dockerfile:
 
-`docker build -t example .`{{execute}}
+`docker build -t example:multistage .`{{execute}}
 
-`docker run -t example`{{execute}}
+`docker run -t example:multistage`{{execute}}
 
 If you look at the size of this image, it's much smaller:
 
-`docker inspect example --format {{.Size}}`{{execute}}
+`docker inspect example:multistage --format {{.Size}}`{{execute}}
 
 You should see it's around 2MB now.
 
-## Notes and further reading
+## Why does the size of an image matter?
 
-Why does the size of an image matter?
-
-* It takes a less time to transfer a smaller image across a network.
+* It takes a less time to transfer a smaller image across a network. When you are trying to run many instances of a container in a distributed system, this can have a real impact on performance.
 * The less software is inside a container, the smaller the attack surface.
 
-## Extra exercises and further reading
-
-You can find out lots of information about a container image with `docker image inspect`. See if you can related the Dockerfile commands like `ENTRYPOINT` and `WORKDIR` to this output. 
-
-`docker image inspect example`{{execute}}
+## Extra exercises and and further reading
 
 You can also find out about how the image was created with the `docker image history` command:
 
-`docker image history example`{{execute}}
+`docker image history example:multistage`{{execute}}
+
+See how this compares to the history that is stored in the single-stage image you built earlier:
+
+`docker image history example:single`{{execute}}
+
+You can find out lots of information about a container image with `docker image inspect`. See if you can relate the Dockerfile commands like `ENTRYPOINT` and `WORKDIR` to this output.
+
+`docker image inspect example:multistage`{{execute}}
+
+Compare with the single-stage image:
+
+`docker image inspect example:single`{{execute}}
 
 * Read more about how [image layers affect the final image size](https://developers.redhat.com/blog/2016/03/09/more-about-docker-images-size/)
 * Read about how [performance and the number of vulnerabilities can be affected by image size](https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-how-and-why-to-build-small-container-images)

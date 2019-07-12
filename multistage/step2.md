@@ -25,13 +25,13 @@ ENTRYPOINT ["hello"]
 
 Build the image using this Dockerfile.
 
-`docker build -t example  .`{{execute}}
+`docker build -t example:single  .`{{execute}}
 
 Run a container from this image: 
 
-`docker run -t example`{{execute}}
+`docker run -t example:single`{{execute}}
 
-`docker run -t example I am a teapot`{{execute}}
+`docker run -t example:single I am a teapot`{{execute}}
 
 * The image ENTRYPOINT defines which executable gets run when you run the container
 * Any other arguments you pass in are also passed to that executable
