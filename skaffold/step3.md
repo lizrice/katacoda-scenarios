@@ -1,36 +1,17 @@
-Now it's time to run your app inside a container. 
+It's time to start skaffold
 
-The next command runs a container, based on the container image you just built.
+`skaffold dev`{{execute T1}}
 
-`docker run --rm -d -p 18080:8080 hello`{{execute}}
+* You should see the skaffold build the container with the same kind of output that you would see if you ran `docker build`
+* Then there are messages telling you about deploying the pod to Kubernetes
+* Finally you will start to see logs from the hello application being displayed on the screen
 
-* The -d option runs the container in the background (so that we can still access the terminal prompt)
-* The -p 18080:8080 tells Docker to map port 8080 in the container to port 18080 on the host
+## Edit the application
 
-You'll see a long string of hex digits printed to the terminal. That's the unique ID for that instance of the running container.
+Edit the `hello.go` file to change the message that gets printed out. In this Katacoda environment the file will save automatically.
 
-## Look at the running containers
+Skaffold is watching for changes, and it rebuilds and redeploys the application when it spots your change. You will soon see the log output changing to your new message.
 
-`docker ps`{{execute}}
+## Next steps
 
-This output should show a running container based on your image.
-
-## Check you can access it
-
-Note that we have mapped port 8080 inside the container to port 18080 on the host. Recall that your Go app is serving from port 8080. The container port is only meaningful inside the container itself, and we need to use the **host** port number to access the app:
-
-`curl localhost:18080`{{execute}}
-
-or:
-
-`curl https://[[HOST_SUBDOMAIN]]-18080-[[KATACODA_HOST]].environments.katacoda.com/`{{execute}}
-
-## Next step
-
-You specified that the host port would be 18080 with the -p parameter; you also specified that the port to access inside the container is 8080. In the next step we'll see some other options for specifying the host and container port values.
-
-# Notes and further reading
-
-In much the same way as in git, you don't have to use the full string of digits to identify a container, you just have to supply enough characters to uniquely identify the container. This is true for container image IDs as well.
-
-In the `docker ps` output you'll also see a randomly-generated, human-readable name for the container. You can give a container a particular name by specifying it on the `docker run` command with the `--name` parameter. Find out more in [this article](https://www.digitalocean.com/community/tutorials/naming-docker-containers-3-tips-for-beginners). 
+This shows how Skaffold can be used to automate the steps needed to update a deployment when you make changes to your Go code.

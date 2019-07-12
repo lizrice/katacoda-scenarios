@@ -1,73 +1,61 @@
-Start by writing a simple Go web server application. 
-
-## Hello world
-
-Write a basic web server in Go that will respond to a request on port 8080 with a simple message like "hello world". The editor pane on the top right of this screen is already set up to edit a file called `hello.go`. You can click the button below to copy the code into that file.
+Start with a very simple app that writes a line to _stdout_ every few seconds. When this app is deployed in a Kubernetes pod, you will be able to see this output as the pod's log output. 
 
 <pre class="file" data-filename="hello.go" data-target="replace">
 package main
 
 import (
-  "net/http"
   "fmt"
-  "os"
+  "time"
 )
 
 func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("hello world\n"))
-	})
-
-	err := http.ListenAndServe(":8080", nil)
-	if err != nil {
-	  fmt.Printf("serving: %v\n", err)
-	  os.Exit(1)
+	for {
+		fmt.Println("hello")
+		time.Sleep(5*time.Second)
 	}
 }
 </pre>
 
-## Compile your app
+## Multistage build Dockerfile
 
-Clicking on commands like the line below, will copy and execute it in the terminal window on the bottom right of this screen.
+<pre class="file" data-filename="Dockerfile" data-target="replace">
+# First stage: start with a Golang base image
+FROM golang:1.12-alpine3.10
 
-`CGO_ENABLED=0 go build -o hello hello.go`{{execute}}
+# Move to the directory where the source code will live
+WORKDIR /go/src/hello
 
-We are turning off "CGO_ENABLED" in order to build a standalone binary executable file that we'll be able to use inside a container image, without any other dependencies required.
+# Copy the source code into the current directory
+COPY hello.go .
 
-## Run your app
+# Get any dependencies, and compile the code
+RUN CGO_ENABLED=0 go get -v ./...
 
-Run the app in the background (using the ampersand) so that you can still type into the terminal.
+# Second stage: start from an empty base image
+FROM scratch
 
-`./hello &`{{execute}}
+# Copy the binary from the first stage
+COPY --from=0 /go/bin/hello /
 
-## Check it works
+# Tell Docker what executable to run by default when starting this container
+ENTRYPOINT ["/hello"]
+</pre>
 
-You can make a request to your application using `curl`:
+Build this image and check that it works. 
 
-`curl localhost:8080`{{execute}}
+`docker build -t hello .`{{execute T1}}
 
-You should see the text message returned to you.
+`docker run -t hello`{{execute T1}}
 
-### Host names in this Katacoda environment
+This should log output to the screen on a regular basis. 
 
-We've just made the `curl` request to the active port (8080, if you didn't change it) on `localhost`. On Katacoda you can also reach active ports through a dynamically-configured host name for your environment. In this case you can access your app through your browser by visiting https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/
+Stop this container from a second terminal.
 
-You can also make a request using `curl`:
+`docker stop $(docker ps --filter ancestor=hello -q)`{{execute T2}}
 
-`curl https://[[HOST_SUBDOMAIN]]-8080-[[KATACODA_HOST]].environments.katacoda.com/`{{execute}}
-
-You should also be able to issue that curl request from a terminal on your laptop, because that address is exposed to the internet.
-
-## Stop the application
-
-When you're satisfied that this application works, let's stop it:
-
-`kill %1`{{execute}}
-
-Verify that *hello* is no longer running:
-
-`ps`{{execute}}
+* See the [Docker documentation](https://docs.docker.com/engine/reference/commandline/ps/#filtering) for more information about filtering the results from `docker ps`
+* The `-q` parameter returns just the container ID, which can then be passed to the `docker stop` command.
 
 ## Next step
 
-At this stage you have a compiled Go binary. In the next step we'll build a container image that includes that binary.
+We have a very simple application that we can run in a container. Now let's get Skaffold to run it under Kubernetes. 

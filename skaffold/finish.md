@@ -1,5 +1,6 @@
-Congratulations, you've finished this scenario! Here's what you have covered:
+Congratulations, you've finished this scenario!
 
-- Building a container image from a Dockerfile 
-- Running a container
-- Network port mapping
+## Running on your laptop
+
+If you would like to try running Skaffold on your laptop, you can install it as described in the [documentation](https://skaffold.dev/docs/getting-started/). 
+

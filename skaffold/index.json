@@ -45,6 +45,8 @@
   },
   "files": [
     "hello.go",
-    "Dockerfile"
+    "Dockerfile",
+    "skaffold.yaml",
+    "k8s-pod.yaml"
   ]
 }
