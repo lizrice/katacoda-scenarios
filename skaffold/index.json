@@ -3,7 +3,7 @@
   "title": "Skaffold",
   "description": "In this section you'll learn about Skaffold",
   "difficulty": "intermediate",
-  "time": "20-30 minutes",
+  "time": "20 minutes",
   "details": {
     "steps": [{
       "title": "Write a simple Go application",
@@ -16,14 +16,6 @@
     {
       "title": "Run your app under Skaffold",
       "text": "step3.md"
-    },
-    {
-      "title": "Container port mapping",
-      "text": "step4.md"
-    },
-    {
-      "title": "Exposing a port through the Dockerfile",
-      "text": "step5.md"
     }],
     "intro": {
       "text": "intro.md",
