@@ -1,4 +1,4 @@
-It's time to start skaffold
+It's time to start skaffold:
 
 `skaffold dev`{{execute T1}}
 
@@ -12,6 +12,8 @@ Edit the `hello.go` file to change the message that gets printed out. In this Ka
 
 Skaffold is watching for changes, and it rebuilds and redeploys the application when it spots your change. You will soon see the log output changing to your new message.
 
-## Next steps
+## Next steps and further reading
 
 This shows how Skaffold can be used to automate the steps needed to update a deployment when you make changes to your Go code.
+
+Because Skaffold uses Dockerfiles to build images, it's not limited to Go - you can use it with other languages as well. You can find out more about Skaffold on its [website](https://skaffold.dev).
