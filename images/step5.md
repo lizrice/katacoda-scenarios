@@ -69,7 +69,7 @@ Check the response you get from port 18083:
 
 You have just seen that the environment variable specified at container image build time is being accessed by the Go application. You could also try over-riding that at runtime.
 
-`docker run -d --rm -p 18084:8080 hello`{{execute}}
+`docker run -d --rm -e GO_APP_RESPONSE="You can change an env var at runtime" -p 18084:8080 hello`{{execute}}
 
 Check your answer!
 
@@ -79,7 +79,7 @@ Check your answer!
 
 You can see any environment variables built into the image with `docker inspect`.
 
-`docker inspect hello`{{execute}}
+`docker inspect -f "{{.Config.Env}}" hello`{{execute}}
 
 Anyone who can run this command on your image can see any environment variables you specified. It's not a safe place to store anything secret.
 
