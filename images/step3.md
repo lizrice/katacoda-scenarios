@@ -24,4 +24,3 @@ You can verify this is true by using the editor panel above to change the conten
 Even though the application reads the file every time you make a request, changing the file here doesn't have any effect. This is because the application is reading the file from the container's own version of the filesystem.
 
 Later, we'll see how you can mount a volume into a container so that it *can* see files on the host filesystem. But first, let's find out what happened to that `fmt.Printf()` message.
-

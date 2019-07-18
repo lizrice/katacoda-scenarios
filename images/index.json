@@ -24,6 +24,10 @@
     {
       "title": "Mounting a directory from the host",
       "text": "step4.md"
+    },
+    {
+      "title": "Passing environment variables into a container",
+      "text": "step5.md"
     }],
     "intro": {
       "text": "intro.md",

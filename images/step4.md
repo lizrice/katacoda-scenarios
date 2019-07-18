@@ -46,3 +46,7 @@ If you have permission to run Docker commands, there is nothing stopping you fro
 
 * It's possible to [mount directories as read-only](https://docs.docker.com/storage/volumes/#use-a-read-only-volume) so that the container can't affect the contents.
 * Mounting a sensitive directory like `/etc` or even the root directory into a container can allow a user to escalate their privileges. See an example in [this video](https://youtu.be/ltrV-Qmh3oY?t=700) (This demo uses Kubernetes, but the directory mounting mechanism works in just the same way you have used above).
+
+# Next step
+
+In the next step you'll see how to pass environment variables into your application.
