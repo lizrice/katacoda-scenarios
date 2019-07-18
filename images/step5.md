@@ -7,21 +7,15 @@ package main
 
 import (
   "fmt"
-  "io/ioutil"
   "net/http"
   "os"
 )
 
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		response, err := os.Getenv("GO_APP_RESPONSE")
-		if err != nil {
-			fmt.Printf("getting env: %v\n", err)
-			os.Exit(1)
-		}
-
+		response := os.Getenv("GO_APP_RESPONSE")
 		fmt.Printf("response: %s\n", response)
-		w.Write(response)
+		w.Write([]byte(response))
 	})
 
 	err := http.ListenAndServe(":8080", nil)
