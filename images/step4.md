@@ -6,6 +6,8 @@ In this step we're going to create a different response file, and we're going to
 
 `touch different/response`{{execute}}
 
+Click the blue link below to open this new file that you have just created:
+
 `different/response`{{open}}
 
 Copy the contents into that response file.
