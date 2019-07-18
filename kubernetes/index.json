@@ -1,7 +1,7 @@
 {
   "pathwayTitle": "An Intro to Containers for Go Programmers",
-  "title": "Container basics: containers and images",
-  "description": "In this section we'll look at what a container is, and what a container image is",
+  "title": "Kubernetes basics",
+  "description": "In this scenario you'll see how to run your containerized Go app under Kubernetes",
   "difficulty": "beginner",
   "time": "20-30 minutes",
   "details": {
@@ -10,11 +10,11 @@
       "text": "step1.md"
     },
     {
-      "title": "Put your app into a container image",
+      "title": "Run your container in a Kubernetes pod",
       "text": "step2.md"
     },
     {
-      "title": "Run your container image",
+      "title": "Kubernetes deployments",
       "text": "step3.md"
     },
     {
