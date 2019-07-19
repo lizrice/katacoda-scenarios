@@ -1,0 +1,13 @@
+{
+    "title": "An Introduction to Containers for Go programmers",
+    "description": "Learn about how containers work",
+    "courses": [
+        {
+            "pathway_id": "lizrice",
+            "id": "hello",
+            "course_id": "hello",
+            "title": "Test Title",
+            "description": "Test Description"
+        }
+    ]
+}
