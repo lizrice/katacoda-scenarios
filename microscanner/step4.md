@@ -36,9 +36,9 @@ And now the image will be scanned when you run the following command
 
 In this example Dockerfile we specify the `--no-verify` flag when running `microscanner`. 
 
-Running microscanner with the `--no-verify` flag means that you're not checking the certificates that identify the Aqua "CyberCenter" where the vulnerability database is held, when microscanner makes an HTTPS connection. This leaves you susceptible to the possibility that an attacker could spoof the CyberCenter address, and return inaccurate results for your scan. 
+Running microscanner with the `--no-verify` flag means that you're not checking the certificates that identify the Aqua "CyberCenter" where the vulnerability database is held, when microscanner makes an HTTPS connection. This leaves you susceptible to the possibility that an attacker could spoof the CyberCenter address, and return inaccurate results for your scan.
 
-It is much better practice to omit this flag, but this requires the container image to have CA (certificate authority) certificates installed. Many images will have this already, but you may need to add steps to the Dockerfile to add them if they aren't there already. The command you need for this depends on the Linux distribution used in the base image (so unfortunately that means we can't use a single Dockerfile to scan _any_ image unless we specify `--no-verify`).
+It is much better practice to omit this flag, but this requires the container image to have CA (certificate authority) certificates installed. Many images will have this already, but you may need to add steps to the Dockerfile to add them if they aren't there already. The command you need for this depends on the Linux distribution used in the base image.
 
 For example (Debian):
 
