@@ -1,4 +1,4 @@
-We can use a single Dockerfile to scan any image.
+We can use a single Dockerfile to scan any image, using a multistage build.
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
 # The image name will be passed in as a build argument
@@ -23,6 +23,8 @@ RUN /microscanner ${TOKEN} --no-verify
 # We will only get to this if the scanning succeeds
 FROM ${IMAGE}
 </pre>
+
+The last line of this Dockerfile starts a new stage, which consists simply of the image we wanted to scan in the first place. The build will only reach this step if the scan succeeds. The benefit is that the image output by the build includes nothing except the contents of the original image.
 
 Here in Katacoda let's use an environment variable to hold the name of the image you want to scan. Click the following command so you're prompted for the image name:
 
