@@ -11,6 +11,7 @@ spec:
   containers:
   - name: hello
     image: hello:latest
+    imagePullPolicy: Never
 </pre>
 
 The file format is YAML. If you haven't come across YAML before, [here is an introductory guide](https://circleci.com/blog/what-is-yaml-a-beginner-s-guide).
@@ -19,7 +20,8 @@ The file format is YAML. If you haven't come across YAML before, [here is an int
 * The `kind` of resource being defined is a Pod
 * There is some metadata and a specification for the Pod
   * In the metadata there is a name for the Pod, and a label is also applied.
-  * The specification says what is to go inside the pod. In this case the specification is very simple: there is just one container called `hello`, and the image is `hello:latest`. Each container needs a name for identification purposes.
+  * The specification says what is to go inside the pod. In this case the specification is very simple: there is just one container called `hello`, and the image is `hello:latest`. Each container needs a name for identification purposes
+  * Setting `imagePullPolicy` to `never` means that the node expects to find the image present. You would be very unlikely to use this setting in a real Kubernetes environment. 
 
 ## Interacting with Kubernetes
 
@@ -55,7 +57,7 @@ You should see that the pod is in running state. If it's still creating, give it
 `kubectl describe pod hello-pod`{{execute}}
 
 * The name of the pod is as specified in the pod's metadata.
-* You'll see information about the pod and about the container within it. 
+* You'll see information about the pod and about the container within it.
 
 Kubernetes performs several actions when it is asked to run a pod:
 
@@ -69,3 +71,12 @@ In the next step you'll confirm that the pod is really running your container im
 
 * The component on each node that runs containers is called the _Kubelet_. You can get an overview of the different Kubernetes components from the [documentation](https://kubernetes.io/docs/concepts/overview/components/).
 * [More on Kubernetes scheduling](https://www.oreilly.com/ideas/kubernetes-scheduling-magic-revealed)
+
+You used an `imagePullPolicy` of `Never` for this scenario. This works here because you are building images on the same (virtual) machine that you're running Kubernetes. It's much more common to build the image, store it in an imge registry, and then have Kubernetes nodes pull the image from that registry when they need it.
+
+As an optional exercise you can try pushing the image to the Docker Hub registry and have your Kubernetes node pull it from there. Here's what you need to do: 
+
+
+
+
+

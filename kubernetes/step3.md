@@ -6,11 +6,21 @@ You have already seen that the container is running, through the `kubectl descri
 
 `kubectl describe pod hello-pod`{{execute}}
 
+In the `Containers` section of the `describe` output you should see the container called `hello`. It includes the Container ID, as well as the name and ID of the image this container was created from. 
+
 You can also see the container running from Docker's perspective:
 
 `docker ps -f name=hello`{{execute}}
 
 You can compare the container ID to see that they are the same.
+
+## Reading logs
+
+When you run containers under Docker, output to stdout and stderr can be read using `docker logs`. There is a very similar approach in Kubernetes:
+
+`kubectl logs hello-pod`{{execute}}
+
+The Go program you are running outputs the name of the host that it's running on. Notice that in Kubernetes, this is automatically set to the pod name.
 
 ## Reconciliation
 
@@ -28,50 +38,12 @@ To really stop the code from running, you need to delete the pod.
 
 `kubectl delete pod hello-pod`{{execute}}
 
-## Deployments
-
-One of the benefits of Kubernetes is the ability to run multiple instances of a pod. The easiest way to do this is with a _deployment_. The following YAML defines a deployment that will run two instances (replicas) of pods that are practically identical to the pod you just ran:
-
-<pre class="file" data-filename="deployment.yaml" data-target="replace">
-apiVersion: extensions/v1beta1
-kind: Deployment
-metadata:
-  name: hello
-spec:
-  replicas: 2
-  template:
-    metadata:
-      labels:
-        app: hello
-    spec:
-      containers:
-      - name: hello
-        image: hello:latest
-</pre>
-
-* The metadata near the top of the file applies to the deployment object (not the pods)
-* The pods take their definition from the `template` part of the YAML definition. This includes the metadata taht will apply to the pods.
-
-The only difference between the template part of this file and `pod.yaml` is that there is no name defined in the pod metadata. The two pods wouldn't be permitted to have the same name anyway. Instead, Kubernetes will autogenerate a name for each pod based on the deployment name plus some random characters.
-
-Apply this deployment:
-
-`kubectl apply -f deployment.yaml`{{execute}}
-
-Check for the pods: 
+Check that the pod has stopped:
 
 `kubectl get pods`{{execute}}
 
-You can also get information about the deployment:
+## Next step
 
-`kubectl get deployments`{{execute}}
+You have already seen how to get Kubernetes to run a container for you in a pod. If the container stops for any reason, Kubernetes will start a new instance in order to keep itself in line with the declarative definition you supplied.
 
-## Reading logs
-
-When you run containers under Docker, output to stdout and stderr can be read using `docker logs`. There is a very similar approach in Kubernetes:
-
-`kubectl logs`{{execute}}
-
-Since there are two containers, you should see the output showing two different hostnames.
-
-* Read more about [Kubernetes Deployments](https://cloud.google.com/kubernetes-engine/docs/concepts/deployment)
+In the next step you'll see how to run multiple instances of a pod by using a _Deployment_.
