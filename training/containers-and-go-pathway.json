@@ -6,56 +6,56 @@
             "pathway_id": "lizrice",
             "id": "hello",
             "course_id": "hello",
-            "title": "Getting started with containers",
+            "title": "1-1: Getting started with containers",
             "description": "Write a simple Go application and run it inside a container"
         },
         {
             "pathway_id": "lizrice",
             "id": "images",
             "course_id": "images",
-            "title": "Understanding container images",
+            "title": "1-2: Understanding container images",
             "description": "Take a look at the filesystem inside a container, and see how to pass environment variables in, and get logs out"
         },
         {
             "pathway_id": "lizrice",
             "id": "entrypoint",
             "course_id": "entrypoint",
-            "title": "Entrypoints and Commands",
+            "title": "1-3: Entrypoints and Commands",
             "description": "Specifying the command that gets run when you start a container"
         },
         {
             "pathway_id": "lizrice",
             "id": "scratch",
             "course_id": "scratch",
-            "title": "Write a container from scratch",
+            "title": "2: Write a container from scratch",
             "description": "Understand how a container is made out of namespaces, chroot and cgroups by writing one in a few lines of Go code"
         },
         {
             "pathway_id": "lizrice",
             "id": "multistage",
             "course_id": "multistage",
-            "title": "Go apps and multistage image builds",
+            "title": "3-1: Go apps and multistage image builds",
             "description": "Building your Go code into an image using multistage builds"
         },
         {
             "pathway_id": "lizrice",
             "id": "microscanner",
             "course_id": "microscanner",
-            "title": "Vulnerability scanning for container images",
+            "title": "3-2: Vulnerability scanning for container images",
             "description": "How to scan container images for vulnerabilities"
         },
         {
             "pathway_id": "lizrice",
             "id": "skaffold",
             "course_id": "skaffold",
-            "title": "Skaffold",
+            "title": "3-3: Skaffold",
             "description": "Using skaffold to rebuild images as you modify your code"
         },
         {
             "pathway_id": "lizrice",
             "id": "kubernetes",
             "course_id": "kubernetes",
-            "title": "Kubernetes basics",
+            "title": "4: Kubernetes basics",
             "description": "Running your containerized Go app under Kubernetes"
         }
     ]
