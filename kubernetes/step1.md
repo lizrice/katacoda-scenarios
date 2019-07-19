@@ -11,8 +11,9 @@ import (
 
 func main() {
 	for {
-		fmt.Printf("hello, my hostname is %v\n", os.Hostname())
-		time.Sleep(5*time.Second)
+        hostname, _ := os.Hostname()
+        fmt.Printf("hello, my hostname is %v\n", hostname)
+        time.Sleep(5*time.Second)
 	}
 }
 </pre>
