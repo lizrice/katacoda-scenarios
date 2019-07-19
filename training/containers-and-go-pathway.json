@@ -18,17 +18,17 @@
         },
         {
             "pathway_id": "lizrice",
-            "id": "scratch",
-            "course_id": "scratch",
-            "title": "Write a container from scratch",
-            "description": "Understand how a container is made out of namespaces, chroot and cgroups by writing one in a few lines of Go code"
-        },
-        {
-            "pathway_id": "lizrice",
             "id": "entrypoint",
             "course_id": "entrypoint",
             "title": "Entrypoints and Commands",
             "description": "Specifying the command that gets run when you start a container"
+        },
+        {
+            "pathway_id": "lizrice",
+            "id": "scratch",
+            "course_id": "scratch",
+            "title": "Write a container from scratch",
+            "description": "Understand how a container is made out of namespaces, chroot and cgroups by writing one in a few lines of Go code"
         },
         {
             "pathway_id": "lizrice",
