@@ -1,33 +1,25 @@
 {
   "pathwayTitle": "An Intro to Containers for Go Programmers",
-  "title": "Kubernetes basics",
-  "description": "In this scenario you'll see how to run your containerized Go app under Kubernetes",
+  "title": "Kubernetes stateless applications",
+  "description": "Connect your stateless web application to a database service in Kubernetes",
   "difficulty": "beginner",
   "time": "20-30 minutes",
   "details": {
     "steps": [{
-      "title": "Write a simple Go app",
+      "title": "Create a database service",
       "text": "step1.md"
     },
     {
-      "title": "Run your container in a Kubernetes pod",
+      "title": "Write a Go application",
       "text": "step2.md"
     },
     {
-      "title": "Kubernetes logs",
+      "title": "Deploy the web application",
       "text": "step3.md"
     },
     {
-      "title": "Kubernetes deployments",
+      "title": "Check that everything is working",
       "text": "step4.md"
-    },
-    {
-      "title": "Kubernetes services",
-      "text": "step5.md"
-    },
-    {
-      "title": "Scaling the number of replicas",
-      "text": "step6.md"
     }],
     "intro": {
       "text": "intro.md",
@@ -50,6 +42,9 @@
     "Dockerfile",
     "pod.yaml",
     "deployment.yaml",
-    "service.yaml"
+    "service.yaml",
+    "pg-cfg.yaml",
+    "pg-svc.yaml",
+    "pg-deployment.yaml"
   ]
 }

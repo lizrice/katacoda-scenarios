@@ -55,8 +55,15 @@
             "pathway_id": "lizrice",
             "id": "kubernetes",
             "course_id": "kubernetes",
-            "title": "4: Kubernetes basics",
+            "title": "4-1: Kubernetes basics",
             "description": "Running your containerized Go app under Kubernetes"
+        },
+        {
+            "pathway_id": "lizrice",
+            "id": "kube-web",
+            "course_id": "kube-web",
+            "title": "4-2: Connecting Kubernetes services",
+            "description": "Running a stateless Go app that connects to a database in Kubernetes"
         }
     ]
 }
