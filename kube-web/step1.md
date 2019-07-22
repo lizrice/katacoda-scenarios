@@ -4,30 +4,9 @@ In this step you will deploy a service for a database, and modify your app code 
 
 The application will return the number of requests or "hits" that it has received. The number of hits is maintained in a database.
 
-## Database service
-
-You're going to use Postgres as the database. Start with the service YAML definition for the postgres service.
-
-<pre class="file" data-filename="pg-svc.yaml" data-target="replace">
-apiVersion: v1
-kind: Service
-metadata:
-  name: postgres-svc
-spec:
-  type: NodePort
-  ports:
-  - port: 5432
-  selector:
-    app: postgres
-</pre>
-
-You can create this now, even though there are no pods that match the `app=postgres` selector yet. This is one of the consequences of Kubernetes' approach to reconciliation; Kubernetes will continue to look for pods that match this selector, and will add them to the Service as and when they come available.
-
-`kubectl apply -f pg-svc.yaml`{{execute}}
-
 ## Database container
 
-Here's a deployment file that will run Postgres for you. 
+Here's a deployment file that will run Postgres for you.
 
 <pre class="file" data-filename="pg-deployment.yaml" data-target="replace">
 apiVersion: extensions/v1beta1
@@ -113,6 +92,31 @@ Quit out of `psql` and out of the container.
 `\q`{{execute}}
 
 `exit`{{execute}}
+
+## Database service
+
+Postgres is running in a container in a pod, and that pod has an IP address which you can see if you get the details for it with `kubectl describe`:
+
+`kubectl describe pods -l app=postgres`{{execute}}
+
+This IP address is dynamically allocated each time a pod is created. When you write your web application, it is going to need to connect to the database pod, but it won't know the IP address. Instead, we will create a service, and the application can refer to the service by name.
+
+<pre class="file" data-filename="pg-svc.yaml" data-target="replace">
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-svc
+spec:
+  type: NodePort
+  ports:
+  - port: 5432
+  selector:
+    app: postgres
+</pre>
+
+Create this service:
+
+`kubectl apply -f pg-svc.yaml`{{execute}}
 
 ## Next steps
 

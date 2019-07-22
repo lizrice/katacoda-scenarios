@@ -40,6 +40,10 @@ spec:
     app: hello
 </pre>
 
+Apply this service YAML:
+
+`kubectl apply -f service.yaml`{{execute}}
+
 ## Next steps 
 
 In the next step you'll see if it is working as expected! 

@@ -22,4 +22,4 @@ Try scaling the deployment down again. When you're done, delete the *hello* depl
 
 # Further reading and next steps
 
-This scenario has given you a basic introduction to running a Go application in Kubernetes. N
+This scenario has given you a basic introduction to running a Go application in Kubernetes.
