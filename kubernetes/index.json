@@ -6,7 +6,7 @@
   "time": "20-30 minutes",
   "details": {
     "steps": [{
-      "title": "Write a simple web server",
+      "title": "Write a simple Go app",
       "text": "step1.md"
     },
     {
@@ -14,16 +14,20 @@
       "text": "step2.md"
     },
     {
-      "title": "Kubernetes deployments",
+      "title": "Kubernetes logs",
       "text": "step3.md"
     },
     {
-      "title": "Container port mapping",
+      "title": "Kubernetes deployments",
       "text": "step4.md"
     },
     {
-      "title": "Exposing a port through the Dockerfile",
+      "title": "Kubernetes services",
       "text": "step5.md"
+    },
+    {
+      "title": "Scaling the number of replicas",
+      "text": "step6.md"
     }],
     "intro": {
       "text": "intro.md",

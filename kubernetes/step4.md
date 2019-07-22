@@ -16,7 +16,7 @@ spec:
       containers:
       - name: hello
         image: hello:latest
-        imagePullPolicy: never
+        imagePullPolicy: Never
 </pre>
 
 * The metadata near the top of the file applies to the deployment object (not the pods)
@@ -89,6 +89,26 @@ Rebuild the app:
 Recreate the deployment, which will use the new web-app version of the image this time. (It's not great practice to keep re-using the same name and tag for the image when it is performing a different function, but it saves having to modify the YAML file for this lesson.)
 
 `kubectl apply -f deployment.yaml`{{execute}}
+
+After a few seconds you should find there are two pods running:
+
+`kubectl get pods`{{execute}}
+
+Each pod is assigned its own IP address. The IP address is included as part of the detailed information you get from `kubectl describe` on a pod.
+
+`kubectl describe pods | grep IP`{{execute}}
+
+Pick either of these IP addresses and you can make a curl request to it. Recall that the app is listening on port 8080:
+
+`read -p "Enter a pod IP address: " address`{{execute}}
+
+`curl $address:8080`{{execute}}
+
+Try with the other address as well.
+
+## Load balancing
+
+When you have multiple instances of a container image, you'll typically want to load balance requests to them so that they can share the load of incoming requests. As you'll see in the next step, this is achieved in Kubernetes with a service.
 
 ## Next steps and further reading
 
