@@ -8,8 +8,8 @@ metadata:
 spec:
   type: NodePort
   ports:
-  - port: 8080
-    nodePort: 30000
+  - targetPort: 8080
+    port: 30000
   selector:
     app: hello
 </pre>
@@ -30,11 +30,13 @@ Check that the service exists:
 
 `kubectl get services`{{execute}}
 
-This will show you the IP address that has been allocated to this service. 
+This will show you the *Cluster IP* address that has been allocated to this service. You can use this address to make requests to the service.
+
+`read -p "Enter the cluster IP address for hello-svc: " clusterip`{{execute}}
 
 Try making a request to the service:
 
-`curl <IP address>:30000`{{execute}}
+`curl $clusterip:30000`{{execute}}
 
 If you do this a few times you should see that responses could come from either of the pods behind the service.
 

@@ -14,8 +14,12 @@ Check the number of pods:
 
 These pods are automtically made part of the `hello-svc` service, and you should see responses from them if you repeatedly make requests to the service:
 
-`curl localhost:30000`{{execute}}
+`curl $clusterip:30000`{{execute}}
 
-# Further reading
+Try scaling the deployment down again. When you're done, delete the *hello* deployment.
 
-This scenario has given you a basic introduction to running a Go application in Kubernetes.
+`kubectl delete deployment hello`{{execute}}
+
+# Further reading and next steps
+
+This scenario has given you a basic introduction to running a Go application in Kubernetes. Next, you'll build a web application that stores data in a database. 

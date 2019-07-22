@@ -4,9 +4,7 @@ In this step you will deploy a service for a database, and modify your app code 
 
 ## Database service
 
-First create a file:
-
-`touch pg-svc.yaml`{{execute}}
+You're going to use Postgres as a database. Start with the service YAML definition for the postgres service.
 
 <pre class="file" data-filename="pg-svc.yaml" data-target="replace">
 apiVersion: v1
@@ -25,9 +23,7 @@ You can create this now, even though there are no pods that match the `app=postg
 
 ## Database container
 
-You're going to use Postgres as a database.
-
-`touch pg-deployment.yaml`{{execute}}
+Here's a deployment file that will run Postgres for you. 
 
 <pre class="file" data-filename="pg-deployment.yaml" data-target="replace">
 apiVersion: extensions/v1beta1
@@ -58,11 +54,11 @@ spec:
           path: /var/lib/pg/data
 </pre>
  
-This deployment uses a `hostPath` volume, which means the containers in this deployment can access a directory on the host node. This will work for our demonstration purposes today, because we only have one node. In a production deployment you would have your containers use [other types of storage](https://kubernetes.io/docs/concepts/storage/volumes/)
+* You can use a pre-existing container image for Postgres
+* This file refers to a configMap - this is coming up next
+* This deployment uses a `hostPath` volume, which means the containers in this deployment can access a directory on the host node. This will work for our demonstration purposes today, because we only have one node. In a production deployment you would have your containers use [other types of storage](https://kubernetes.io/docs/concepts/storage/volumes/)
 
-The deployment also refers to a ConfigMap, which is a way of passing environment variables into a container. 
-
-`touch pg-cfg.yaml`{{execute}}
+The deployment refers to a ConfigMap, which is a way of passing environment variables into a container. Let's define that next. 
 
 <pre class="file" data-filename="pg-cfg.yaml" data-target="replace">
 apiVersion: v1
@@ -70,8 +66,6 @@ kind: ConfigMap
 metadata:
   name: pg-config
 data:
-  HELLO_DB_HOST: postgres://postgres@postgres/example?sslmode=disable
-  HELLO_DB_KIND: postgres
   PGDATA: /var/lib/postgresql/data/pgdata
   POSTGRES_USER: postgres
 </pre>
@@ -90,7 +84,6 @@ Find the ID of the postgres container pod.
 
 `export pod=$(kubectl get pods -l app=postgres --no-headers -o custom-columns=":metadata.name")`{{execute}}
 
-
 `kubectl exec -it $pod sh`{{execute}}
 
 You are now in a shell in the Postgres container. For the purposes of this demonstration you're going to manually create the database called "hello" that your Go app is going to use:
@@ -101,7 +94,15 @@ And still inside the Postgres container you can manually create a "hits" table i
 
 `psql -U postgres`{{execute}}
 
+Connect to the *hello* database:
+
+`\c hello`{{execute}}
+
+Create and initialize the hits table in this database:
+
 `CREATE TABLE hits (total int);`{{execute}}
+
+`INSERT INTO hits (total) VALUES (0);`{{execute}}
 
 Quit out of `psql` and out of the container.
 
@@ -179,7 +180,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 We need to `go get` a package from a Git repository and this requires us to [install `git`](https://stackoverflow.com/questions/36044275/golang-go-get-command-showing-go-missing-git-command-error) into the first stage of the multistage build. This means our Dockerfile looks like this:
 
-<pre class="file" data-filename="hello.go" data-target="replace">
+<pre class="file" data-filename="Dockerfile" data-target="replace">
 FROM golang:1.12-alpine3.10
 
 # Move to the directory where the source code will live

@@ -12,7 +12,9 @@ You can also see the container running from Docker's perspective:
 
 `docker ps -f name=hello`{{execute}}
 
-You can compare the container ID to see that they are the same.
+You can compare the container ID of the hello container to see that it matches what you found through `kubectl describe`.
+
+As well as the hello container, you'll see a "pause" container. You can ignore this for the time being. 
 
 ## Reading logs
 
@@ -47,3 +49,5 @@ Check that the pod has stopped:
 You have already seen how to get Kubernetes to run a container for you in a pod. If the container stops for any reason, Kubernetes will start a new instance in order to keep itself in line with the declarative definition you supplied.
 
 In the next step you'll see how to run multiple instances of a pod by using a _Deployment_.
+
+If you want to know about pause containers in Kubernetes, check out [Ian Lewis's write-up](https://www.ianlewis.org/en/almighty-pause-container).

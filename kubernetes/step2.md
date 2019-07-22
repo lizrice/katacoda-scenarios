@@ -8,6 +8,8 @@ In this Katacoda scenario there is a single-node Kubernetes cluster running alre
 
 `kubectl get nodes`{{execute}}
 
+You should see a single node. If its status is `NotReady`, give it a few seconds and try again. If it's still NotReady, the next command should give some clues.
+
 `kubectl describe nodes`{{execute}}
 
 * The `get` subcommand lists resources of a given type - in this case it was nodes.
@@ -62,6 +64,7 @@ You should see that the pod is in running state. If it's still creating, give it
 
 * The name of the pod is as specified in the pod's metadata.
 * You'll see information about the pod and about the container within it.
+* In the description you should see an IP address. Each pod in Kubernetes gets allocated its own IP address.
 
 Kubernetes performs several actions when it is asked to run a pod:
 
