@@ -54,6 +54,9 @@
     "Dockerfile",
     "pod.yaml",
     "deployment.yaml",
-    "service.yaml"
+    "service.yaml",
+    "pg-cfg.yaml",
+    "pg-svc.yaml",
+    "pg-deployment.yaml"
   ]
 }

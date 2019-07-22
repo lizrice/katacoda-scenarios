@@ -21,6 +21,8 @@ spec:
 
 You can create this now, even though there are no pods that match the `app=postgres` selector yet. This is one of the consequences of Kubernetes' approach to reconciliation; Kubernetes will continue to look for pods that match this selector, and will add them to the Service as and when they come available.
 
+`kubectl apply -f pg-svc.yaml`{{execute}}
+
 ## Database container
 
 Here's a deployment file that will run Postgres for you. 
@@ -213,19 +215,27 @@ You can now create the deployment with your new "hello" web application, and als
 
 `kubectl apply -f deployment.yaml`{{execute}}
 
-`kubectl apply -f service.yaml`{{execute}}
-
 Check that the pods start up alright, noticing that you now have pods for both the hello app and the database service that it is connecting to.
 
 `kubectl get pods`{{execute}}
 
+You should have two services (plus the kubernetes service itself):
+
+`kubectl get svc`{{execute}}
+
+Check the logs from the *hello* app to see if they connected to the postgres database successfully:
+
 `kubectl logs -l app=hello`{{execute}}
 
-Get the IP address of the service.
+The service for the *hello* app shouldn't have changed since we last looked at it and stored it in the environment variable `$clusterip`.
 
 `kubectl get svc hello-svc`{{execute}}
 
+`echo $clusterip`{{execute}}
+
 You can use this to make requests to the hello service. Do this several times to check that the number of hits - which is stored in the database, not in the app - goes up each time.
+
+`curl $clusterip:30000`{{execute}}
 
 ## Notes and extra exercises
 
