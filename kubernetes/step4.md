@@ -28,7 +28,7 @@ Apply this deployment:
 
 `kubectl apply -f deployment.yaml`{{execute}}
 
-Check for the pods: 
+Check for the pods:
 
 `kubectl get pods`{{execute}}
 
@@ -44,9 +44,59 @@ In the previous step, you used `kubectl logs` to read the logs from a pod. Now y
 
 When a label is used in this way to select all the matching pods it is called a _label selector_. Since there are two containers, you should see the output showing two different hostnames.
 
+You can also follow the logs as they are generated:
+
+`kubectl logs -l app=hello -f`{{execute}}
+
+Quit out of this with Ctrl-C when you are done, and delete the deployment with the following command, which tells Kubernetes to delete everything that was specified in the YAML file:
+
+`kubectl delete -f deployment.yaml`{{execute}}
+
+## Make your app a web service
+
+So far you have a very simple app that does nothing but generate logs. Let's see what happens if you have an app that responds to web traffic. Modify your Go code so that instead of just logging the hostname message, it responds to an HTTP request with the same information.
+
+<pre class="file" data-filename="hello.go" data-target="replace">
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "os"
+)
+
+func main() {
+    hostname, _ := os.Hostname()
+    response := fmt.Sprintf("hello, my hostname is %v\n", hostname)
+    fmt.Printf(response)
+
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte(response))
+	})
+
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+	  fmt.Printf("serving: %v\n", err)
+	  os.Exit(1)
+	}    
+}
+</pre>
+
+Rebuild the app:
+
+`docker build -t hello .`{{execute}}
+
+Recreate the deployment, which will use the new web-app version of the image this time. (It's not great practice to keep re-using the same name and tag for the image when it is performing a different function, but it saves having to modify the YAML file for this lesson.)
+
+`kubectl apply -f deployment.yaml`{{execute}}
+
 ## Next steps and further reading
 
 Deployments make it easy to run an arbitrary number of pods. In the next step you'll see how these pods can be grouped together to provide a Service that other pods can interact with.
 
+Before you move on, if you have time you might want to:
+
 * Read more about [Kubernetes Deployments](https://cloud.google.com/kubernetes-engine/docs/concepts/deployment)
 * Read more about [using labels as a selector in Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors)
+
+If you're going to use Kubernetes from the command line, this [cheat sheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/) is very helpful.

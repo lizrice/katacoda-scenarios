@@ -1,4 +1,26 @@
-You have an image, and now you're going to run that image as a pod in Kubernetes. Kubernetes is usually configured using YAML files. Here is a YAML file for running the _hello_ image in a pod.
+You have an image, and soon you're going to run that image as a pod in Kubernetes. First of all you should meet the command line tool for Kubernetes: `kubectl`.
+
+## Interacting with Kubernetes
+
+There is a command line tool `kubectl` for interacting with Kubernetes. You can install a copy of `kubectl` on your laptop, and with the right credentials and configuration information (and network connectivity), it can interact with a Kubernetes cluster wherever it's running.
+
+In this Katacoda scenario there is a single-node Kubernetes cluster running already. You can use `kubectl` to see the Kubernetes node that's running in your Katacoda environment.
+
+`kubectl get nodes`{{execute}}
+
+`kubectl describe nodes`{{execute}}
+
+* The `get` subcommand lists resources of a given type - in this case it was nodes.
+* You can get more information about resources with the `describe` subcommand:
+
+In Kubernetes, everything is a resource: nodes, pods, and many other types of object (some of which you'll meet later in this scenario). You can use `kubectl get` and `kubectl describe` on any of these resources.
+
+At the moment there are no pods so the following command won't find any resources:
+
+`kubectl get pods`{{execute}}
+
+
+Kubernetes is usually configured using YAML files. Here is a YAML file for running the _hello_ image in a pod.
 
 <pre class="file" data-filename="pod.yaml" data-target="replace">
 apiVersion: v1
@@ -23,24 +45,6 @@ The file format is YAML. If you haven't come across YAML before, [here is an int
   * The specification says what is to go inside the pod. In this case the specification is very simple: there is just one container called `hello`, and the image is `hello:latest`. Each container needs a name for identification purposes
   * Setting `imagePullPolicy` to `never` means that the node expects to find the image present. You would be very unlikely to use this setting in a real Kubernetes environment. 
 
-## Interacting with Kubernetes
-
-There is a command line tool `kubectl` for interacting with Kubernetes. You can install a copy of `kubectl` on your laptop, and with the right credentials and configuration information (and network connectivity), it can interact with a Kubernetes cluster wherever it's running. 
-
-In this Katacoda scenario there is a single-node Kubernetes cluster running already. You can use `kubectl` to see the Kubernetes node that's running in your Katacoda environment.
-
-`kubectl get nodes`{{execute}}
-
-`kubectl describe nodes`{{execute}}
-
-* The `get` subcommand lists resources of a given type - in this case it was nodes.
-* You can get more information about resources with the `describe` subcommand:
-
-In Kubernetes, everything is a resource: nodes, pods, and many other types of object (some of which you'll meet later in this scenario). You can use `kubectl get` and `kubectl describe` on any of these resources.
-
-At the moment there are no pods so the following command won't find any resources:
-
-`kubectl get pods`{{execute}}
 
 ## Applying the YAML file
 

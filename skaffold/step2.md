@@ -39,7 +39,7 @@ This simple Skaffold configuration has two stages.
 
 The build step will generate the `hello` container image by doing a Docker build. By default the build context is the current directory, and we already have a Dockerfile in this directory which describes how to build the image. The `image` field in the `skaffold.yaml` file tells skaffold to tag it with the name `hello`.
 
-Because you are running a local Kubernetes cluster in minikube, Skaffold skips the step of pushing images to a registry.
+Because you are running a local, single-node Kubernetes cluster in Katacoda, Skaffold skips the step of pushing images to a registry.
 
 **Deploy**
 

@@ -10,8 +10,8 @@ import (
 )
 
 func main() {
+  hostname, _ := os.Hostname()
 	for {
-        hostname, _ := os.Hostname()
         fmt.Printf("hello, my hostname is %v\n", hostname)
         time.Sleep(5*time.Second)
 	}
