@@ -30,14 +30,17 @@ Check that the service exists:
 
 `kubectl get services`{{execute}}
 
-Try making a request to the service: 
+This will show you the IP address that has been allocated to this service. 
 
-`curl localhost:30000`{{execute}}
+Try making a request to the service:
+
+`curl <IP address>:30000`{{execute}}
 
 If you do this a few times you should see that responses could come from either of the pods behind the service.
 
 # Next steps and further reading
 
-In the next step you will scale the number of pods up and down
+In the next step you will scale the number of pods up and down.
 
 * Read more about Kubernetes [Services](https://kubernetes.io/docs/concepts/services-networking/service/)
+* See how some [environment variables are automatically defined](https://kubernetes.io/docs/concepts/services-networking/service/#discovering-services) to make it easy for application code to find other services. Be careful - if you define these env vars yourself their values will get overwritten!

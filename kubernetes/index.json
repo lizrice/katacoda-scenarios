@@ -28,6 +28,10 @@
     {
       "title": "Scaling the number of replicas",
       "text": "step6.md"
+    },
+    {
+      "title": "Discovering services with DNS",
+      "text": "step7.md"
     }],
     "intro": {
       "text": "intro.md",
