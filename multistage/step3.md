@@ -86,3 +86,4 @@ Compare with the single-stage image:
 * Read more about how [image layers affect the final image size](https://developers.redhat.com/blog/2016/03/09/more-about-docker-images-size/)
 * Read about how [performance and the number of vulnerabilities can be affected by image size](https://cloud.google.com/blog/products/gcp/kubernetes-best-practices-how-and-why-to-build-small-container-images)
 
+You can see the images and layers for images on Docker Hub at [microbadger.com](https://microbadger.com).
