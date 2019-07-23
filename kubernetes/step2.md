@@ -74,14 +74,25 @@ Kubernetes performs several actions when it is asked to run a pod:
 
 ## Next step and further reading
 
-In the next step you'll confirm that the pod is really running your container image, and then you'll see how Kubernetes can easily run multiple copies of your image. 
+In the next step you'll confirm that the pod is really running your container image, and then you'll see how Kubernetes can easily run multiple copies of your image.
 
 * The component on each node that runs containers is called the _Kubelet_. You can get an overview of the different Kubernetes components from the [documentation](https://kubernetes.io/docs/concepts/overview/components/).
 * [More on Kubernetes scheduling](https://www.oreilly.com/ideas/kubernetes-scheduling-magic-revealed)
 
 You used an `imagePullPolicy` of `Never` for this scenario. This works here because you are building images on the same (virtual) machine that you're running Kubernetes. It's much more common to build the image, store it in an imge registry, and then have Kubernetes nodes pull the image from that registry when they need it.
 
-As an optional exercise you can try pushing the image to the Docker Hub registry and have your Kubernetes node pull it from there. Here's what you need to do: 
+As an optional exercise you can try pushing the image to the Docker Hub registry and have your Kubernetes node pull it from there. Here's what you need to do:
+
+* Log in to Docker Hub with `docker login`{{execute}}
+* [Tag](https://docs.docker.com/engine/reference/commandline/tag/) the image: `docker tag hello:latest *yourname*/hello:latest`{{copy}} 
+* Push the image to Docker hub: `docker push *yourname*/hello.latest`{{copy}}
+* Change the image name in the pod YAML file to `*yourname*/hello:latest
+* Remove `imagePullPolicy: Never` from the pod YAML file so that Kubernetes does pull the image from Docker Hub when it intends to run that container
+* Delete the existing pod: `kubectl delete pod hello-pod`{{execute}}
+* Apply the pod YAML to recreate it with the new definition: `kubectl apply -f pod.yaml`{{execute}}
+
+One last note: did you notice that you didn't have to specify the port that your container is listening on? In Kubernetes you do have the option to define a `containerPort` field which is roughly the equivalent of specifying the container point with the `-p` option in `docker run`. This is really just documentation though: in Kubernetes, any port listening on 0.0.0.0 can receive requests, whether or not it is specified with `containerPort`. From the [Kubernetes API documentation](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/?source=post_page---------------------------#container-v1-core), _"Exposing a port here gives the system additional information about the network connections a container uses, but is primarily informational. Not specifying a port here DOES NOT prevent that port from being exposed. Any port which is listening on the default "0.0.0.0" address inside a container will be accessible from the network."_
+
 
 
 
