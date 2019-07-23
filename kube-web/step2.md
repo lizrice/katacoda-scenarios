@@ -78,7 +78,9 @@ FROM golang:1.12-alpine3.10
 # Move to the directory where the source code will live
 WORKDIR /go/src/hello
 
+# Install git which will be used by go get
 RUN apk add git
+
 # Copy the source code into the current directory
 COPY . .
 

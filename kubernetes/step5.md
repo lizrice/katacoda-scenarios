@@ -22,7 +22,7 @@ Now create the service:
 
 `kubectl apply -f service.yaml`{{execute}}
 
-* The `type` of the service you're using here is `NodePort`. 
+* The `type` of the service you're using here is `NodePort`.
 * This service maps a request to the host's port 30000 to port 8080 on any of the service pods.
 * The service uses the `app=hello` label as a selector to identify the pods that it will load balance between.
 

@@ -59,11 +59,17 @@ Create the ConfigMap and the Postgres deployment:
 
 `kubectl apply -f pg-deployment.yaml`{{execute}}
 
+If you get an error, it may be that Kubernetes has not yet started in your environment. Wait for `kubectl get nodes`{{execute}} to show you that there is a node in `Ready` state - it could take a minute or two.
+
 ### Initialize the database
 
 As a one-off exercise you need to initialize the Postgres database. To do this you will "exec in" to the postgres container in the pod - if you like, you can think of this as like SSH-ing into the container.
 
-Find the ID of the postgres container pod.
+Check that there is a postgres pod running:
+
+`kubectl get pods`{{execute}}
+
+Find the ID of the postgres pod.
 
 `export pod=$(kubectl get pods -l app=postgres --no-headers -o custom-columns=":metadata.name")`{{execute}}
 
@@ -117,6 +123,10 @@ spec:
 Create this service:
 
 `kubectl apply -f pg-svc.yaml`{{execute}}
+
+See everything that is up and running with `kubectl get all`{{execute}}
+
+In fact, this is just showing you everything that is running in the default namespace. Namespaces are a way of group resources together - for example, some organizations use namespaces to separate the resources that apply to different applications, or that are owned by different teams. You'll see another namespace shortly.
 
 ## Next steps
 

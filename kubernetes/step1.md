@@ -49,7 +49,7 @@ You now have a container and in the next step you will run it using Kubernetes. 
 
 ## Container orchestration and more
 
-If you have run scenarios like [Container basics](../hello)) you will have seen how you can run an individual container on a particular host by issuing `docker run` commands on that (virtual) machine. The basic function of a container orchestrator like Kubernetes is to run containers on your behalf. It chooses where to run each container across a number of nodes (known as a cluster).
+If you have run scenarios like [Container basics](../hello) you will have seen how you can run an individual container on a particular host by issuing `docker run` commands on that (virtual) machine. The basic function of a container orchestrator like Kubernetes is to run containers on your behalf. It chooses where to run each container across a number of nodes (known as a cluster).
 
 In order to use containers effectively they may need to be connected together, and they may need to have access to the internet. Kubernetes can perform these functions too, along with managing permissions, secrets, connecting to storage, and many other capabilities that are needed to run a full application in the cloud.
 

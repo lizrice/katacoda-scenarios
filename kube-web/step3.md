@@ -20,7 +20,7 @@ spec:
 
 `kubectl apply -f deployment.yaml`{{execute}}
 
-Check that the pods start up alright, noticing that you now have pods for both the hello app and the database service that it is connecting to.
+Check that the pods start up alright, noticing that you now have pods for both the hello app and the postgres database service that it is connecting to.
 
 `kubectl get pods`{{execute}}
 
