@@ -75,7 +75,7 @@ Check your answer!
 
 `curl localhost:18084`{{execute}}
 
-## Notes and extra images
+## Notes and extra reading
 
 You can see any environment variables built into the image with `docker inspect`.
 
