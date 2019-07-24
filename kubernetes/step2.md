@@ -89,7 +89,7 @@ As an optional exercise you can try pushing the image to the Docker Hub registry
 
 * Log in to Docker Hub with `docker login`{{execute}}
 * [Tag](https://docs.docker.com/engine/reference/commandline/tag/) the image: `docker tag hello:latest *yourname*/hello:latest`{{copy}}
-* Push the image to Docker hub: `docker push *yourname*/hello.latest`{{copy}}
+* Push the image to Docker hub: `docker push *yourname*/hello:latest`{{copy}}
 * Change the image name in the pod YAML file to `*yourname*/hello:latest
 * Remove `imagePullPolicy: Never` from the pod YAML file so that Kubernetes does pull the image from Docker Hub when it intends to run that container
 * Delete the existing pod: `kubectl delete pod hello-pod`{{execute}}
