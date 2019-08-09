@@ -2,9 +2,6 @@
 
 [![](http://shields.katacoda.com/katacoda/lizrice/count.svg)](https://www.katacoda.com/lizrice "Get your profile on Katacoda.com")
 
-Visit https://www.katacoda.com/lizrice to view the profile and interactive scenarios
+Visit https://www.katacoda.com/lizrice for a list of all the scenarios and courses included in this repo. 
 
-### Writing Scenarios
-Visit https://www.katacoda.com/docs to learn more about creating Katacoda scenarios
-
-For examples, visit https://github.com/katacoda/scenario-example
+If you would like to try writing a container in Go it is [here](https://www.katacoda.com/lizrice/scenarios/scratch).
