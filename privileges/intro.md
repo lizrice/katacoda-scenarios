@@ -1,0 +1,1 @@
+In this section you will use kube-bench to identify insecure Kubernetes settings.

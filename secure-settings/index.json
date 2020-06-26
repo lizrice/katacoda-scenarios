@@ -1,0 +1,21 @@
+{
+    "pathwayTitle": "Getting Started with Cloud Native Security",
+    "title": "WORK IN PROGRESS - using secure Kubernetes settings",
+    "description": "In this scenario you'll see how to check your cluster for insecure settings with kube-bench",
+    "difficulty": "beginner",
+    "time": "10 minutes",
+    "details": {
+      "steps": [{
+        "title": "Intro",
+        "text": "step1.md"
+      }]
+    },
+    "environment": {
+      "uilayout": "editor-terminal",
+      "uisettings": "go",
+      "uimessage1": "\u001b[36mYour Interactive Bash Terminal.\u001b[m\r\n"
+    },
+    "backend": {
+      "imageid": "kubernetes"
+    }
+}

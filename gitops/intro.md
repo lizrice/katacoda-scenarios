@@ -1,0 +1,1 @@
+In this section you will learn about GitOps
