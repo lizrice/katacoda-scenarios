@@ -3,28 +3,28 @@
     "description": "Supported by Aqua Security and AWS",
     "courses": [
         {
-            "pathway_id": "kubecon-security",
+            "pathway_id": "lizrice",
             "id": "secure-settings",
             "course_id": "secure-settings",
             "title": "1: Using secure Kubernetes settings",
             "description": "Check your Kubernetes cluster settings"
         },
         {
-            "pathway_id": "kubecon-security",
+            "pathway_id": "lizrice",
             "id": "vulnerability-scanning",
             "course_id": "vulnerability-scanning",
             "title": "2: Including vulnerability scanning in your workflow",
             "description": "Check your container images for vulnerabilities before deployment"
         },
         {
-            "pathway_id": "kubecon-security",
+            "pathway_id": "lizrice",
             "id": "privileges",
             "course_id": "privileges",
             "title": "3: Configuring pods to run securely",
             "description": "Avoid giving your pods unnecessary privileges"
         },
         {
-            "pathway_id": "kubecon-security",
+            "pathway_id": "lizrice",
             "id": "gitops",
             "course_id": "gitops",
             "title": "4: Using GitOps",
