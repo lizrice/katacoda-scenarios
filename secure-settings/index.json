@@ -5,6 +5,12 @@
     "difficulty": "beginner",
     "time": "10 minutes",
     "details": {
+        "intro": {
+            "text": "intro.md",
+        },
+        "finish": {
+            "text": "finish.md"
+        },
         "steps": [
             {
                 "title": "Wait for Kubernetes to be ready",

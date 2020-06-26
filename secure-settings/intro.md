@@ -1,1 +1,1 @@
-In this section you will use kube-bench to identify insecure Kubernetes settings.
+In this section you will use the open source tool [kube-bench](https://github.com/aquasecurity/kube-bench) to identify insecure Kubernetes settings. You'll also remediate one of the settings to turn a failing test into a pass.
