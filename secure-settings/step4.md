@@ -26,9 +26,15 @@ include AlwaysPullImages.
 --enable-admission-plugins=...,AlwaysPullImages,...
 ```
 
-Are you feeling confident? Let's edit that API Server manifest to add the AlwaysPullImage
+Are you feeling confident? Let's edit that API Server manifest to add the AlwaysPullImage admission plugin.
 
-`/etc/kubernetes/manifests/kube-apiserver.yaml`{{open}}
+Copy the file to the current directory so that you can open it in the Katacoda editor:
+
+`cp /etc/kubernetes/manifests/kube-apiserver.yaml .`
+
+Open the file
+
+`kube-apiserver.yaml`{{open}}
 
 Find the line that specifies the `--enable-admission-plugins` parameter - it should look like this:
 
@@ -42,7 +48,9 @@ Add `,AlwaysPullImages`{{copy}} to the end of the line so that it looks like thi
     - --enable-admission-plugins=NodeRestriction,AlwaysPullImages
 ```
 
-Save the file
+Give the editor a moment to save the file, then copy it back to its original location:
+
+`cp kube-apiserver.yaml /etc/kubernetes/manifests/`
 
 It will take a few seconds for the API server to restart with its new configuration.
 
