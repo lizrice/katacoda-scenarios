@@ -1,6 +1,6 @@
 The next command runs a job which only runs the tests for master nodes (so there is less output to confuse us!).
 
-`kubectl apply -f kb-job-master.yaml`{{execute}}
+`kubectl apply -f kb-master-job.yaml`{{execute}}
 
 Wait until the "kube-bench-master" job is complete
 
@@ -9,7 +9,7 @@ Wait until the "kube-bench-master" job is complete
 Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> and then look at the output.
 
 `clear`{{execute}}
-`kubectl logs $(kubectl get pods -l app=kube-bench-master)`{{execute}}
+`kubectl logs $(kubectl get pods -l app=kube-bench-master -o name)`{{execute}}
 
 If you scroll back through the results you should see that test 1.1.11 fails.
 
@@ -28,7 +28,7 @@ include AlwaysPullImages.
 
 Are you feeling confident? Let's edit that API Server manifest to add the AlwaysPullImage
 
-`vi /etc/kubernetes/manifest/kube-apiserver.yaml`{{execute}}
+`/etc/kubernetes/manifests/kube-apiserver.yaml`{{open}}
 
 Find the line that specifies the `--enable-admission-plugins` parameter - it should look like this:
 
@@ -42,7 +42,7 @@ Add `,AlwaysPullImages`{{copy}} to the end of the line so that it looks like thi
     - --enable-admission-plugins=NodeRestriction,AlwaysPullImages
 ```
 
-Write the file and quit the editor (":wq")
+Save the file
 
 It will take a few seconds for the API server to restart with its new configuration.
 

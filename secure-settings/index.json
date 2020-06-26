@@ -44,13 +44,10 @@
     },
     "environment": {
         "uilayout": "editor-terminal",
-        "uimessage1": "\u001b[36mYour Interactive Bash Terminal.\u001b[m\r\n"
+        "uimessage1": "\u001b[36mBash terminal on a node running Kubernetes\u001b[m\r\n",
+        "uieditorpath": "/etc/kubernetes/manifests"
     },
     "backend": {
         "imageid": "kubernetes"
-    },
-    "files": [
-        "kb-job.yaml",
-        "kb-master-job.yaml"
-    ]
+    }
 }

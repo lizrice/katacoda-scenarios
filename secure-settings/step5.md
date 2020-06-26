@@ -14,10 +14,10 @@ Wait for it to complete
 
 `kubectl get jobs --watch`{{execute}}
 
-Hit Ctrl-C once the job is complete, and then view the results.
+Hit <kbd>Ctrl</kbd>+<kbd>C</kbd> once the job is complete, and then view the results.
 
 `clear`{{execute}}
-`kubectl logs $(kubectl get pods -l app=kube-bench -o name)`{{execute}}
+`kubectl logs $(kubectl get pods -l app=kube-bench-master -o name)`{{execute}}
 
 This time, you should see that test 1.1.11 has passed.
 
