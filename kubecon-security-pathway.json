@@ -4,30 +4,30 @@
     "courses": [
         {
             "pathway_id": "lizrice",
-            "id": "secure-settings",
-            "course_id": "secure-settings",
-            "title": "1: Using secure Kubernetes settings",
+            "id": "kube-bench",
+            "course_id": "kube-bench",
+            "title": "1: Checking for insecure Kubernetes settings",
             "description": "Check your Kubernetes cluster settings"
         },
         {
             "pathway_id": "lizrice",
             "id": "vulnerability-scanning",
             "course_id": "vulnerability-scanning",
-            "title": "2: Including vulnerability scanning in your workflow",
+            "title": "2: TODO - Including vulnerability scanning in your workflow",
             "description": "Check your container images for vulnerabilities before deployment"
         },
         {
             "pathway_id": "lizrice",
             "id": "privileges",
             "course_id": "privileges",
-            "title": "3: Configuring pods to run securely",
+            "title": "3: TODO - Configuring pods to run securely",
             "description": "Avoid giving your pods unnecessary privileges"
         },
         {
             "pathway_id": "lizrice",
             "id": "gitops",
             "course_id": "gitops",
-            "title": "4: Using GitOps",
+            "title": "4: TODO - Using GitOps",
             "description": "use GitOps to restrict user access to your cluster, and provide an audit trail"
        }
     ]
