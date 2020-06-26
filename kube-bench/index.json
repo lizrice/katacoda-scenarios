@@ -2,7 +2,7 @@
     "pathwayTitle": "Getting Started with Cloud Native Security",
     "title": "WORK IN PROGRESS - using secure Kubernetes settings",
     "description": "In this scenario you'll see how to check your cluster for insecure settings with kube-bench",
-    "difficulty": "beginner",
+    "difficulty": "intermediate",
     "time": "10 minutes",
     "details": {
         "intro": {
