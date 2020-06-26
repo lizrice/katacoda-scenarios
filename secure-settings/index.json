@@ -6,16 +6,37 @@
     "time": "10 minutes",
     "details": {
       "steps": [{
-        "title": "Intro",
+        "title": "Wait for Kubernetes to be ready",
         "text": "step1.md"
+      },
+      {
+        "title": "Run kube-bench",
+        "text": "step2.md"
+      },
+      {
+        "title": "Look at the results",
+        "text": "step3.md"
+      },
+      {
+        "title": "Remediate a result",
+        "text": "step4.md"
+      },
+      {
+      "title": "Check the improved test",
+      "text": "step5.md"
       }]
     },
     "environment": {
       "uilayout": "editor-terminal",
-      "uisettings": "go",
       "uimessage1": "\u001b[36mYour Interactive Bash Terminal.\u001b[m\r\n"
     },
     "backend": {
-      "imageid": "kubernetes"
+      "imageid": "kubernetes-cluster"
+    },
+    "files": [
+        "kb-job.yaml"
+    ],
+    "assets": {
+        "host01": [{"file": "kb-job.yaml", "target": "/root/"}]
     }
 }
